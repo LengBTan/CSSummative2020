@@ -1,0 +1,12 @@
+body{
+background: -webkit-linear-gradient(-40deg,#000000, #141e30);
+}
+ 
+ 
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+    color: pink;
+}
