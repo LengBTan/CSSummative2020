@@ -13,7 +13,7 @@
 
 		//creates table called StudentDB, with headers of id, firstname, lastname, email, present, and reg_date
 		$sql = "CREATE TABLE StudentDB (
-		id INT NOT NULL UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		firstname VARCHAR(30) NOT NULL,
 		lastname VARCHAR(30) NOT NULL,
 		email VARCHAR(50),
