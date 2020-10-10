@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang=en>
 	<head>
-	<title>TeacherDB</title>
-	<link rel="stylesheet" href="./style.css">
+		<title>TeacherDB</title>
+		<link rel="stylesheet" href="./style.css">
 	</head>
 	
 	<body>
@@ -41,7 +41,6 @@
 				<th>Email</th>
 				<th>Present</th>
 				<th>Sign in time</th>
-				<th></th>
 			</tr>
 			<?php
 
@@ -59,7 +58,7 @@
 				$conn -> close();
 
 
-				//echo "</table>";
+				echo "</table>";
 
 
 				//ALTER TABLE table_name AUTO_INCREMENT = value; //to reset the id increment in mysql
@@ -88,6 +87,11 @@
 
 		</table>
 
+		<br><!-- remove later when stylizing-->
+
+			<form action="editTable.php" method="POST">
+				<input type="button" value="edit table" onclick="window.location.href='editTable.php'">
+			</form>
 
 	</body>
 </html>
