@@ -6,9 +6,9 @@
 	
 	<body>
 
-	<a href="/logIn.php">log in</a>
+	<a href="./logIn.php">Log In as an existing user</a>
 	
-	<a href="/signUp.php">sign up</a>
+	<a href="./register.php">Register</a>
 	
 	</body>
 

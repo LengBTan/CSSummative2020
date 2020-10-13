@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta http-equiv="refresh" content="3;url=/php/studentPage.html">
+    </head>
     <body>
 
         <?php

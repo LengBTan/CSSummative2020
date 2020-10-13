@@ -21,6 +21,19 @@
 		reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 		)";
 
+$sql = "CREATE TABLE users (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	firstname VARCHAR(30) NOT NULL,
+	lastname VARCHAR(30) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	password varchar(50) NOT NULL,
+	reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+	)";
+	
+		
+
+
+
 		//checks if table has been created.
 		if ($conn->query($sql) === TRUE) {
 			echo "Table created successfully <br>";
@@ -41,6 +54,7 @@
 				<th>Email</th>
 				<th>Present</th>
 				<th>Sign in time</th>
+				<th>EDIT</th>
 			</tr>
 			<?php
 
@@ -50,7 +64,13 @@
 				if ($result -> num_rows > 0){
 					while($row = $result -> fetch_assoc())
 					echo "<tr><td>". $row["id"]. "</td>
-					<td>". $row["firstname"] ."</td><td>". $row["lastname"]."</td><td>". $row["email"]. "</td><td>". $row["present"]."</td><td>". $row["reg_date"]."</td></tr>";
+					<td>". $row["firstname"] ."</td>
+					<td>". $row["lastname"]."</td>
+					<td>". $row["email"]. "</td>
+					<td>". $row["present"]."</td>
+					<td>". $row["reg_date"]."</td>
+					<td> <a href='edit.php?id=".$row["id"]."' >EDIT</a></td>
+					</tr>";
 				}else{
 					echo "no students on the list.";
 				}
@@ -90,7 +110,7 @@
 		<br><!-- remove later when stylizing-->
 
 			<form action="editTable.php" method="POST">
-				<input type="button" value="edit table" onclick="window.location.href='editTable.php'">
+				<input type="button" value="Edit table" onclick="window.location.href='editTable.php'">
 			</form>
 
 	</body>
