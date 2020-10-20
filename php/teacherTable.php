@@ -14,21 +14,22 @@
 		//creates table called StudentDB, with headers of id, firstname, lastname, email, present, and reg_date
 		$sql = "CREATE TABLE StudentDB (
 		id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-		firstname VARCHAR(30) NOT NULL,
+		firstname VARCHAR(30) NOT NULL, 
 		lastname VARCHAR(30) NOT NULL,
 		email VARCHAR(50),
 		present BOOLEAN NOT NULL,
 		reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 		)";
 
-$sql = "CREATE TABLE users (
-	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	firstname VARCHAR(30) NOT NULL,
-	lastname VARCHAR(30) NOT NULL,
-	email VARCHAR(50) NOT NULL,
-	password varchar(50) NOT NULL,
-	reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-	)";
+
+		$sql = "CREATE TABLE users (
+		id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		firstname VARCHAR(30) NOT NULL,
+		lastname VARCHAR(30) NOT NULL,
+		email VARCHAR(50) NOT NULL,
+		password varchar(50) NOT NULL,
+		reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+		)";
 	
 		
 
@@ -58,16 +59,18 @@ $sql = "CREATE TABLE users (
 			</tr>
 			<?php
 
+				//selects data from the table named "studentDB", and uses the data to put it in a html table
 				$sql = "SELECT id, firstname, lastname, email, present, reg_date FROM studentdb";
 				$result = $conn->query($sql);
 
 				if ($result -> num_rows > 0){
+
 					while($row = $result -> fetch_assoc())
 					echo "<tr><td>". $row["id"]. "</td>
 					<td>". $row["firstname"] ."</td>
 					<td>". $row["lastname"]."</td>
 					<td>". $row["email"]. "</td>
-					<td>". $row["present"]."</td>
+					<td>". (($row["present"]) ? 'Present':'Absent') ."</td>
 					<td>". $row["reg_date"]."</td>
 					<td> <a href='edit.php?id=".$row["id"]."' >EDIT</a></td>
 					</tr>";
@@ -75,7 +78,7 @@ $sql = "CREATE TABLE users (
 					echo "no students on the list.";
 				}
 
-				$conn -> close();
+				$conn -> close();//close the connection
 
 
 				echo "</table>";

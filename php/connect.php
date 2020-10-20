@@ -1,7 +1,7 @@
 <?php
 
 
-// Create connection
+// Create connection to the mysql database
 $conn = mysqli_connect("localhost", "username", "password","cssummativedb");
     
 
@@ -10,6 +10,6 @@ $conn = mysqli_connect("localhost", "username", "password","cssummativedb");
         die("Connection failed: " . mysqli_connect_error());
         echo "Connection failed";
 	}
-    echo "Connected successfully <br>";
+    //echo "Connected successfully <br>";
     
 ?>
