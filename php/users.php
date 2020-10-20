@@ -1,8 +1,17 @@
 <?php
 
+require "connect.php"; // connects the php file to the mysql database
+class user
+{
+  
+}
+
+
+
+
+
 
 function editstudent($id){
-    include "connect.php";
 
     $sql= "SELECT * FROM studentdb where id='".$id."'";
 
@@ -27,6 +36,7 @@ function editstudent($id){
 
 
 function deleteStudent($id){
+
     //finds the id of the row to delete from studentdb
     $sql = "DELETE FROM studentdb WHERE id='".$id."'";
 

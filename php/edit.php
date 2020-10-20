@@ -20,33 +20,13 @@
 
     }else if(isset($_POST['delete'])){
 
-
-
       echo "Are you sure you want to delete? <br>
-
       <form>
-        
         <input name='confirm' type='submit' value='deny'>
         <input name='deny' type='submit' value='confirm'>
       </form>
-      
-      
-      
-      
-      
       ";
-
-      //finds the id of the row to delete from studentdb
-      $sql = "DELETE FROM studentdb WHERE id='".$id."'";
-
-      //checks if row in table is deleted.
-      if ($conn->query($sql) === TRUE) {
-        echo "Deleted record sucessfully";
-      } else {
-        echo "Error deleting record: " . $conn->error;
-      }
-      
-
+      deleteStudent($id);
     
     }else{
 
