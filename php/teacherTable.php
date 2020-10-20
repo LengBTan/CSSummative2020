@@ -2,7 +2,7 @@
 <html lang=en>
 	<head>
 		<title>TeacherDB</title>
-		<link rel="stylesheet" href="./style.css">
+		<link rel="stylesheet" href="style.css">
 	</head>
 	
 	<body>
@@ -21,7 +21,7 @@
 		reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 		)";
 
-
+		//creates table called users, with headers of id, firstname, lastname, email, password, and reg_date
 		$sql = "CREATE TABLE users (
 		id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		firstname VARCHAR(30) NOT NULL,
@@ -58,7 +58,6 @@
 				<th>EDIT</th>
 			</tr>
 			<?php
-
 				//selects data from the table named "studentDB", and uses the data to put it in a html table
 				$sql = "SELECT id, firstname, lastname, email, present, reg_date FROM studentdb";
 				$result = $conn->query($sql);
@@ -115,6 +114,8 @@
 			<form action="editTable.php" method="POST">
 				<input type="button" value="Edit table" onclick="window.location.href='editTable.php'">
 			</form>
+
+			<a href="">Add student</a>
 
 	</body>
 </html>
