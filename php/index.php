@@ -5,10 +5,14 @@
 	</head>
 	
 	<body>
-
-	<a href="./logIn.php">Log In as an existing user</a>
 	
 	<a href="./register.php">Register</a>
+	<br>
+	<a href="./login.php">Log In</a>
+	<br>
+
+	
+	<a href="./teacherTable.php">TEACHER DATABASE</a>
 	
 	</body>
 

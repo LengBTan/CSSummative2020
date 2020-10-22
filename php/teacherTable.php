@@ -11,25 +11,26 @@
 
 		include "connect.php";
 
-		//creates table called StudentDB, with headers of id, firstname, lastname, email, present, and reg_date
+		//creates table called StudentDB, with headers of id, firstname, lastname, email, password, present, and reg_date
 		$sql = "CREATE TABLE StudentDB (
 		id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		firstname VARCHAR(30) NOT NULL, 
 		lastname VARCHAR(30) NOT NULL,
 		email VARCHAR(50),
+		password varchar(50) NOT NULL,
 		present BOOLEAN NOT NULL,
 		reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 		)";
 
 		//creates table called users, with headers of id, firstname, lastname, email, password, and reg_date
-		$sql = "CREATE TABLE users (
-		id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-		firstname VARCHAR(30) NOT NULL,
-		lastname VARCHAR(30) NOT NULL,
-		email VARCHAR(50) NOT NULL,
-		password varchar(50) NOT NULL,
-		reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-		)";
+		//$sql = "CREATE TABLE users (
+		//id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		//firstname VARCHAR(30) NOT NULL,
+		//lastname VARCHAR(30) NOT NULL,
+		//email VARCHAR(50) NOT NULL,
+		//password varchar(50) NOT NULL,
+		//reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+		//)";
 	
 		
 
@@ -88,9 +89,6 @@
 
 
 				//html delete function query to delete a selected student
-				function deleteRow($id){
-					
-				}
 
 				//edit function to edit a selected student
 
@@ -108,14 +106,6 @@
 			?>
 
 		</table>
-
-		<br><!-- remove later when stylizing-->
-
-			<form action="editTable.php" method="POST">
-				<input type="button" value="Edit table" onclick="window.location.href='editTable.php'">
-			</form>
-
-			<a href="">Add student</a>
 
 	</body>
 </html>

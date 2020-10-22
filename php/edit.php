@@ -15,8 +15,10 @@
     
     if(isset($_POST['submit'])){
      editstudent($id);
+     header("Location: /php/teacherTable.php");
     }else if(isset($_POST['deleteStudent'])){
       deletestudent($id);
+      header("Location: /php/teacherTable.php");
     }else{
 
       echo"
@@ -28,39 +30,32 @@
       Not present: <input type='radio' name='present' value='0' required><br>
       <input name='submit' type='submit' value='Update Student'>
       </form>
-
-
-      <!-- Show the modal -->
-      <button id='deleteButton'>Delete Student</button>
-
-      <!-- The Modal -->
-      <div id='myModal' class='modal'>
-
-        <!-- content in the modal, gives option to confirm, sending a post request to delete the row, or to close the modal when denying -->
-        <div class='modal-content'>
-          <span class='close'>&times;</span>
-          <h1>Are you sure you want to delete the student from the list?</h1>
-          <form form method='POST'>
-            <input type='submit' name='deleteStudent' value='Yes'>
-          </form>
-          <button onclick = 'modal.style.display = 'none''>No</button>
-        </div>
-
-      </div>
-
-
       ";
-
-
-      
     }
     ?>
+    <!-- Show the modal -->
+    <button id='deleteButton'>Delete Student</button>
 
+    <!-- The Modal -->
+    <div id='modal' class='modal'>
+
+      <!-- content in the modal, gives option to confirm, sending a post request to delete the row, or to close the modal when denying -->
+      <div class='modal-content'>
+        <span class='close'>&times;</span>
+        <h1>Are you sure you want to delete the student from the list?</h1>
+        <form method='POST'>
+          <input type='submit' name='deleteStudent' value='Yes'>
+          
+          </form>
+          <button onclick = "modal.style.display = 'none'">No</button>
+      </div>
+
+    </div>
 
 
 <script>
 // Get the modal
-var modal = document.getElementById("myModal");
+var modal = document.getElementById("modal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("deleteButton");

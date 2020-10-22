@@ -11,12 +11,13 @@
             $firstname = $_POST["firstname"];
             $lastname = $_POST["lastname"];
             $email = $_POST["email"];
+            $password = $_POST['password'];
 
             echo "$firstname  <br>";
             echo "$lastname <br>"; 
             echo "$email <br>"; 
 
-            $sql = "INSERT INTO StudentDB (firstname, lastname, email, present) VALUES ('$firstname', '$lastname', '$email', true)";
+            $sql = "INSERT INTO StudentDB (firstname, lastname, email, password, present) VALUES ('$firstname', '$lastname', '$email', '$password' , true)";
 
 
 
@@ -27,6 +28,8 @@
                 }
                 
             $conn -> close();
+
+
         ?>
 
     </body>
