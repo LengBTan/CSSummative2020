@@ -3,7 +3,7 @@ session_start();
 include "users.php";
 require "connect.php";
 
-$user = new User();
+$student = new Student();
 //if ($user->session()){
 //redirect user to their specified page
 //}
@@ -12,7 +12,7 @@ $user = new User();
 if (isset($_POST['submit'])){
     $email = $_POST["email"];
     $password = $_POST['password'];
-    $login = $user->login($email,$password);
+    $login = $student->login($email,$password);
     if($login){
         echo "Logged in succesfully";
         //header to redirect
@@ -20,10 +20,6 @@ if (isset($_POST['submit'])){
         echo "Failed to log in";
     }
 }
-
-
-
-
 
 
 ?>

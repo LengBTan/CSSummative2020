@@ -3,7 +3,7 @@
 include "users.php";
 require "connect.php";
 
-$user = new User();
+$student = new Student();
 
 if (isset($_POST['submit'])){
 	$firstname = $_POST["firstname"];
@@ -11,7 +11,7 @@ if (isset($_POST['submit'])){
     $email = $_POST["email"];
 	$password = $_POST['password'];
 
-	$user->register($firstname,$lastname,$email,$password);
+	$student->register($firstname,$lastname,$email,$password);
 	//if($register){
 	echo "You are now registered";
 	//}else{

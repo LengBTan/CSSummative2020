@@ -1,6 +1,6 @@
 <?php
 
-//class DB{
+//class User{
 
 
 //  function __construct(){
@@ -15,7 +15,7 @@
 //  }
 //} 
 
-class User{
+class Student{
 
   //constructor
   public function __construct(){
@@ -24,19 +24,16 @@ class User{
 
   public function register($firstname, $lastname, $email, $password){
     include "connect.php";
-
-    //for now dont encrypt
-    //$password = md5($password); //encrypts password using MD5 encrypting algorithm
+    
+    $password = md5($password); //encrypts password using MD5 encrypting algorithm
     
     //MAKE A CHECKER IF EMAIL ALREADY EXISTS
     //$sql = ("SELECT id FROM studentDB WHERE email='$email'");//checks if email already exists
     
     $sql = "INSERT INTO StudentDB (firstname, lastname, email, password, present) VALUES ('$firstname', '$lastname', '$email', '$password' , true)";
-    
-    
-    
+
     if ($conn->query($sql) === TRUE) {
-      echo "New record created successfully";
+      echo "New record created successfully <br>";
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -47,27 +44,32 @@ class User{
 
   function login($email, $password){
     include "connect.php";
-    //$password = md5($password);
+    $password = md5($password);
     
+    $sql = "SELECT * FROM studentDB WHERE email = '".$email."' and password = '".$password."'"; //'".md5($password)."'";
     
-    
-    $sql = "SELECT * FROM 'studentDB' WHERE email='$email' and password =$password"; //'".md5($password)."'";
-    if($result = mysqli_query($conn,$sql)){
-      $rowcount = mysqli_num_rows($result);
-    }
-    
-    
-    //$result = mysqli_query($conn,$sql) or die(mysqli_error());
-    
+    //checks if the email is in the database by going through each row and checking
+    $result = mysqli_query($conn,$sql) or die(mysqli_error());
+    $rowcount = mysqli_num_rows($result); 
     if($rowcount == 1){
       $_SESSION['email']= $email;
-      echo "";
+
+
+      //update timestamp
+      $sql = "UPDATE studentDB SET reg_date = now() WHERE email = '".$email."'";
+      $result = mysqli_query($conn,$sql);
+      if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+      } else {
+        echo "Error updating record: " . $conn->error;
+      }
+      header("Location: ./studentPage.php"); //Redirects user to the student page
       return true;
+      
     }else{
       return false;
     }
   }
-
 
   public function session(){
     if (isset($_SESSION['login'])){
@@ -82,6 +84,43 @@ class User{
 }
 
 
+class Teacher{
+
+
+
+  public function construct(){
+    include "connect.php";
+  }
+
+
+  //function register(){
+  //}
+  function login($email, $password){
+    include "connect.php";
+    //$password = md5($password);
+    
+    
+    
+    $sql = "SELECT * FROM teacherDB WHERE email = '".$email."' and password = '".$password."'"; //'".md5($password)."'";
+    
+    //checks if the email is in the database by going through each row and checking
+    $result = mysqli_query($conn,$sql) or die(mysqli_error());
+    $rowcount = mysqli_num_rows($result); 
+    if($rowcount == 1){
+    $_SESSION['email']= $email;
+
+    header("Location: ./teacherTable.php");
+      
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
+
+
+
+}
 
 
 
@@ -92,8 +131,7 @@ class User{
 
 
 
-
-
+//move the functions to student class
 function editstudent($id){
 
   include "connect.php";
@@ -134,12 +172,7 @@ include "connect.php";
     }
 }
 
-function addstudent(){
-  include "connect.php";
 
-  //$sql = "INSERT INTO StudentDB (firstname, lastname, email, present) VALUES ('placeholder', 'placeholder', 'placeholderemail', false)";
-
-}
 
 
 ?>

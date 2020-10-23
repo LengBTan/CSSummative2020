@@ -6,24 +6,31 @@
 	</head>
 	
 	<body>
+		<header>
+			<a href="">logout</a>
+		</header>
+		<h1>Student table</h1>
+
+
+
 
 		<?php
 
 		include "connect.php";
 
 		//creates table called StudentDB, with headers of id, firstname, lastname, email, password, present, and reg_date
-		$sql = "CREATE TABLE StudentDB (
-		id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-		firstname VARCHAR(30) NOT NULL, 
-		lastname VARCHAR(30) NOT NULL,
-		email VARCHAR(50),
-		password varchar(50) NOT NULL,
-		present BOOLEAN NOT NULL,
-		reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-		)";
+		//$sql = "CREATE TABLE StudentDB (
+		//id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		//firstname VARCHAR(30) NOT NULL, 
+		//lastname VARCHAR(30) NOT NULL,
+		//email VARCHAR(50),
+		//password varchar(50) NOT NULL,
+		//present BOOLEAN NOT NULL,
+		//reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+		//)";
 
-		//creates table called users, with headers of id, firstname, lastname, email, password, and reg_date
-		//$sql = "CREATE TABLE users (
+		//creates table called teacherDB, with headers of id, firstname, lastname, email, password, and reg_date
+		//$sql = "CREATE TABLE teacherDB (
 		//id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		//firstname VARCHAR(30) NOT NULL,
 		//lastname VARCHAR(30) NOT NULL,
@@ -32,20 +39,16 @@
 		//reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 		//)";
 	
-		
-
-
 
 		//checks if table has been created.
-		if ($conn->query($sql) === TRUE) {
-			echo "Table created successfully <br>";
-		} else {
-			echo "Error creating table: <br>" . $conn->error . "<br>";
-		}
+		//if ($conn->query($sql) === TRUE) {
+		//	echo "Table created successfully <br>";
+		//} else {
+		//	echo "Error creating table: <br>" . $conn->error . "<br>";
+		//}
 
 		
 		?>
-
 
 		<!-- Table of the database-->
 		<table>
@@ -59,7 +62,7 @@
 				<th>EDIT</th>
 			</tr>
 			<?php
-				//selects data from the table named "studentDB", and uses the data to put it in a html table
+				//selects data from the table named "studentDB", and uses the data to display it in a html table
 				$sql = "SELECT id, firstname, lastname, email, present, reg_date FROM studentdb";
 				$result = $conn->query($sql);
 
@@ -84,14 +87,10 @@
 				echo "</table>";
 
 
+				
+
+
 				//ALTER TABLE table_name AUTO_INCREMENT = value; //to reset the id increment in mysql
-
-
-
-				//html delete function query to delete a selected student
-
-				//edit function to edit a selected student
-
 
 				//create student function
 				//$sql = "INSERT INTO StudentDB (firstname, lastname, email, present) VALUES ('placeholder', 'placeholder', 'placeholderemail', false)";
