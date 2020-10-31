@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="style.css">
   </head>
     <?php
-    include "connect.php";
+    include "./connect.php";
     include "./users.php";
 
     $id = $_REQUEST['id'];
@@ -16,10 +16,10 @@
     
     if(isset($_POST['submit'])){
       $student->editstudent($id);
-      header("Location: /php/teacherTable.php");
+      header("Location: ./php/teacherTable.php");
     }else if(isset($_POST['deleteStudent'])){
       $student->deletestudent($id);
-      header("Location: /php/teacherTable.php");
+      header("Location: ./php/teacherTable.php");
     }else{
 
       echo"

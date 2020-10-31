@@ -10,7 +10,7 @@
 		<h2 id="title">TeacherDB</h2>
 
 			<?php
-				include "connect.php";
+				include "./connect.php";
 				include "./users.php";
 
 				session_start();

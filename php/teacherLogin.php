@@ -7,6 +7,7 @@ $teacher = new Teacher();
 session_start();
 
 
+
 if($teacher->session()){
 	header("Location: ./teacherTable.php");
 }
