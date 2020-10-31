@@ -8,7 +8,7 @@ session_start();
 
 
 
-if($teacher->session()){
+if($teacher->session() && $_SESSION["usertype"] == "teacher"){
 	header("Location: ./teacherTable.php");
 }
 

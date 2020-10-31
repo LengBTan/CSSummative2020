@@ -11,7 +11,7 @@ header{
 }
 
 #teacherheader{
-  background-color: rgb(0, 0, 0);
+  background-color: white;
   width: 100%;
 }
 
@@ -22,7 +22,7 @@ header{
   flex-grow: 1;
 }
 
-#titlee{
+#displayuser{
   color: white;
   text-align: left;
   padding: 10px;

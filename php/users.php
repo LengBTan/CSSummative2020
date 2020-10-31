@@ -21,6 +21,7 @@ class User{
 
   public function logout(){
     $_SESSION['login'] = false;
+    $_SESSION["usertype"] = "";
     session_destroy();
   }
 
@@ -30,7 +31,6 @@ class Student extends User{
 
   //constructor
   public function __construct(){
-    
   }
 
   public function register($firstname, $lastname, $email, $password){
@@ -71,7 +71,7 @@ class Student extends User{
     if($rowcount == 1){
       $_SESSION['email']= $email;
       $_SESSION['login']= true;
-
+      $_SESSION["usertype"] = "student";
 
 
       //update timestamp
@@ -174,6 +174,7 @@ class Teacher extends User{
 
   public function construct(){
     include "connect.php";
+    $_SESSION["usertype"] = "teacher";
   }
 
 
@@ -213,7 +214,7 @@ class Teacher extends User{
     if($rowcount == 1){
       $_SESSION['email']= $email;
       $_SESSION['login']= true;
-
+      $_SESSION["usertype"] = "teacher";
 
 
       //update timestamp
