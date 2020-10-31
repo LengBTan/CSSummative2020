@@ -29,9 +29,6 @@ if(isset($_POST['submit'])){
 
 
 <html>
-    <head>
-
-    </head>
     <body>
         <div>
             <form action="" method="POST">

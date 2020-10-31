@@ -16,7 +16,7 @@
 				session_start();
 				$teacher = new Teacher();
 
-				if(!$teacher->session()||!$_SESSION["usertype"] == "teacher"){
+				if(!$teacher->session()||$_SESSION["usertype"] == "student"){
 					header("Location: ./index.php");
 				}
 

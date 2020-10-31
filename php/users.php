@@ -12,6 +12,8 @@ class User{
     //  die("Connection failed: " . mysqli_connect_error());
     //  echo "Connection failed";
   //}
+
+  //when called, logs user in a session, returns the value $_SESSION['login']
   }
   public function session(){
     if (isset($_SESSION['login'])){
@@ -31,6 +33,8 @@ class Student extends User{
 
   //constructor
   public function __construct(){
+    include "connect.php";
+    //$_SESSION["usertype"] = "student";
   }
 
   public function register($firstname, $lastname, $email, $password){
@@ -59,6 +63,7 @@ class Student extends User{
 
   }
 
+  
   function login($email, $password){
     include "connect.php";
     $password = md5($password);
@@ -174,7 +179,7 @@ class Teacher extends User{
 
   public function construct(){
     include "connect.php";
-    $_SESSION["usertype"] = "teacher";
+    //$_SESSION["usertype"] = "teacher";
   }
 
 

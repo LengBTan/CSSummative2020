@@ -15,7 +15,7 @@ $email = $_SESSION['email'];
 
 
 //if user tries to go to this page without logging in, it will redirect them to index.php
-if(!$student->session()||!$_SESSION["usertype"] == "teacher"){
+if(!$student->session()||$_SESSION["usertype"] == "teacher"){
 	header("Location: ./index.php");
 }
 

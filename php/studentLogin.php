@@ -8,6 +8,7 @@ $student = new Student();
 
 
 //checks if student is logged in, redirect them to the student page.
+
 if($student->session() && $_SESSION["usertype"] == "student"){
 	header("Location: ./studentPage.php");
 }
