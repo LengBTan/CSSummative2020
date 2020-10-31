@@ -35,8 +35,9 @@ header{
   color: white;
   background-color: blue;
   padding: 10px;
-  margin: 50px;
+  margin: 10px;
 }
+
 
 body{
   background-color:#c9c9c9;
@@ -57,7 +58,7 @@ body{
 
 
 .box{
-  display: block;
+  display: grid;
   padding: 10px;
   background-color: white;
   margin: auto;

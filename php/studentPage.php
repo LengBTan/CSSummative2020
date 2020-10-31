@@ -40,7 +40,7 @@ if(isset($_GET['logout'])){
 
 <html lang=en>
 	<head>
-	<title>studentPage</title>
+	<title>Student Page</title>
 	<link rel="stylesheet" href="style.css">
 	</head>
 	<header>

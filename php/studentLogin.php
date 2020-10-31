@@ -29,6 +29,10 @@ if (isset($_POST['submit'])){
 ?>
 
 <html>
+    <head>
+    <title>Login</title>
+	<link rel="stylesheet" href="style.css">
+    </head>
 	<div>
 		<form action="" method="POST">
 			<input type="email" name="email" placeholder="Email" required> <br>

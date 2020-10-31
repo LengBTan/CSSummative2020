@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="refresh" content="3;url=/php/studentPage.html">
+		<link rel="stylesheet" href="style.css">
     </head>
     <body>
 

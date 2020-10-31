@@ -24,6 +24,9 @@ if (isset($_POST['submit'])){
 ?>
 
 <html>
+	<head>
+	<link rel="stylesheet" href="style.css">
+	</head>
 	<div>
 		<form action="" method="POST">
 			<input type="text" name="firstname" placeholder="First name" required> <br>
