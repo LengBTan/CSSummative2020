@@ -3,14 +3,9 @@
 include "users.php";
 require "connect.php";
 
+$teacher = new Teacher();
 
 
-$student = new Student();
-
-
-if($student->session()){
-	header("Location: studentPage.php");
-}
 
 if (isset($_POST['submit'])){
 	$firstname = $_POST["firstname"];
@@ -18,7 +13,7 @@ if (isset($_POST['submit'])){
     $email = $_POST["email"];
 	$password = $_POST['password'];
 
-	$student->register($firstname,$lastname,$email,$password);
+	$teacher->register($firstname,$lastname,$email,$password);
 }
 
 

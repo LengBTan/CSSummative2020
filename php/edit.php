@@ -8,24 +8,25 @@
   </head>
     <?php
     include "connect.php";
-    include "users.php";
-    $id = $_REQUEST['id'];
+    include "./users.php";
 
+    $id = $_REQUEST['id'];
+    $student = new Student();
 
     
     if(isset($_POST['submit'])){
-     editstudent($id);
-     header("Location: /php/teacherTable.php");
+      $student->editstudent($id);
+      header("Location: /php/teacherTable.php");
     }else if(isset($_POST['deleteStudent'])){
-      deletestudent($id);
+      $student->deletestudent($id);
       header("Location: /php/teacherTable.php");
     }else{
 
       echo"
       <form method='POST' id='form1'>
-			First name: <input type='text' name='firstname' autocomplete='off' required> <br>
-			Last name: <input type='text' name='lastname' autocomplete='off' required> <br>
-      Email: <input type='email' name='email' autocomplete='off' required> <br>
+			First name: <input type='text' name='firstname' autocomplete='off' value='".$student->getFirstName($id)."'   required> <br>
+			Last name: <input type='text' name='lastname' autocomplete='off' value='".$student->getLastName($id)."' required> <br>
+      Email: <input type='email' name='email' autocomplete='off' value='".$student->getEmail($id)."' required> <br>
       Present: <input type='radio' name='present' value='1' required><br>
       Not present: <input type='radio' name='present' value='0' required><br>
       <input name='submit' type='submit' value='Update Student'>

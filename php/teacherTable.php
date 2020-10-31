@@ -6,17 +6,44 @@
 	</head>
 	
 	<body>
-		<header>
-			<a href="">logout</a>
+		<header id="teacherheader">
+		<h2 id="title">TeacherDB</h2>
+
+			<?php
+				include "connect.php";
+				include "./users.php";
+
+				session_start();
+				$teacher = new Teacher();
+
+				if(!$teacher->session()){
+					header("Location: ./index.php");
+				}
+
+				if($teacher->session()){
+					echo "<h4 id='titlee'>Currently logged in as: ".$_SESSION['email']."</h4>";
+				}
+
+				if(isset($_GET['logoutsession'])){
+					$teacher->logout();
+					header("Location: ./index.php");
+				}
+
+			?>
+			<a href="?logoutsession" class="logoutbutton">Log out</a>
+
 		</header>
-		<h1>Student table</h1>
+		
 
 
 
 
 		<?php
+		
 
-		include "connect.php";
+		
+
+		
 
 		//creates table called StudentDB, with headers of id, firstname, lastname, email, password, present, and reg_date
 		//$sql = "CREATE TABLE StudentDB (
@@ -51,60 +78,48 @@
 		?>
 
 		<!-- Table of the database-->
-		<table>
-			<tr>
-				<th>Id</th>
-				<th>First name</th>
-				<th>Last name</th>
-				<th>Email</th>
-				<th>Present</th>
-				<th>Sign in time</th>
-				<th>EDIT</th>
-			</tr>
-			<?php
-				//selects data from the table named "studentDB", and uses the data to display it in a html table
-				$sql = "SELECT id, firstname, lastname, email, present, reg_date FROM studentdb";
-				$result = $conn->query($sql);
+		<div id="tablebox">
+			<table>
+					<tr>
+						<th>Id</th>
+						<th>First name</th>
+						<th>Last name</th>
+						<th>Email</th>
+						<th>Present</th>
+						<th>Sign in time</th>
+						<th>EDIT</th>
+					</tr>
+				<div id="students">
+					<?php
+						//selects data from the table named "studentDB", and uses the data to display it in a html table
+						$sql = "SELECT id, firstname, lastname, email, present, reg_date FROM studentdb";
+						$result = $conn->query($sql);
 
-				if ($result -> num_rows > 0){
+						if ($result -> num_rows > 0){
 
-					while($row = $result -> fetch_assoc())
-					echo "<tr><td>". $row["id"]. "</td>
-					<td>". $row["firstname"] ."</td>
-					<td>". $row["lastname"]."</td>
-					<td>". $row["email"]. "</td>
-					<td>". (($row["present"]) ? 'Present':'Absent') ."</td>
-					<td>". $row["reg_date"]."</td>
-					<td> <a href='edit.php?id=".$row["id"]."' >EDIT</a></td>
-					</tr>";
-				}else{
-					echo "no students on the list.";
-				}
+							while($row = $result -> fetch_assoc())
+							echo "<tr><td>". $row["id"]. "</td>
+							<td>". $row["firstname"] ."</td>
+							<td>". $row["lastname"]."</td>
+							<td>". $row["email"]. "</td>
+							<td>". (($row["present"]) ? 'Present':'Absent') ."</td>
+							<td>". $row["reg_date"]."</td>
+							<td> <a href='edit.php?id=".$row["id"]."' id='editbutton' >•••</a></td>
+							</tr>";
+						}else{
+							echo "no students on the list.";
+						}
 
-				$conn -> close();//close the connection
-
-
-				echo "</table>";
-
-
-				
+						$conn -> close();//close the connection
 
 
-				//ALTER TABLE table_name AUTO_INCREMENT = value; //to reset the id increment in mysql
+						echo "</table>";
 
-				//create student function
-				//$sql = "INSERT INTO StudentDB (firstname, lastname, email, present) VALUES ('placeholder', 'placeholder', 'placeholderemail', false)";
-		
+						//ALTER TABLE table_name AUTO_INCREMENT = value; //to reset the id increment in mysql
 
-				//if ($conn->query($sql) === TRUE) {
-				//	echo "New record created successfully";
-				//} else {
-				//	echo "Error: " . $sql . "<br>" . $conn->error;
-				//}
-
-			?>
-
-		</table>
-
+					?>
+				</div>
+			</table>
+		</div>
 	</body>
 </html>

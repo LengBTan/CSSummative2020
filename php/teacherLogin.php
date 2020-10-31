@@ -1,17 +1,22 @@
 <?php
 
 require "connect.php";
-require "users.php";
+require "./users.php";
 
 $teacher = new Teacher();
+session_start();
+
+
+if($teacher->session()){
+	header("Location: ./teacherTable.php");
+}
 
 if(isset($_POST['submit'])){
     $email = $_POST["email"];
     $password = $_POST['password'];
     $login = $teacher->login($email,$password);
     if($login){
-        //header("Location: ./teacherTable.php");
-        //echo"successfully logged in";
+        echo "Logged in sucessfully";
 
     }else{
         echo"Email or password is incorrect";

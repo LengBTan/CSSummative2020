@@ -2,10 +2,11 @@
 <html>
 	<head>
 	<title> Student database application</title>
+	<link rel="stylesheet" href="style.css">
 	</head>
 	
 	<body>
-	
+	<div class="box">
 	<h3>Students</h3>
 	
 	<a href="./studentRegister.php">Register</a>
@@ -19,6 +20,8 @@
 	
 	<a href="./teacherLogin.php">Teacher login</a>
 
+	<a href="./teacherRegister.php">Teacher register</a>
+	</div>
 	</body>
 
 </html>
