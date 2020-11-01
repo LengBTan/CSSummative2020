@@ -6,6 +6,8 @@
 		<title>edit student</title>
 		<link rel="stylesheet" href="style.css">
   </head>
+    <body>
+    <div class="form">
     <?php
     include "./connect.php";
     include "./users.php";
@@ -47,6 +49,8 @@
         ";
     }
     ?>
+    </div>
+    </body>
 
 
 </html>

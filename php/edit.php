@@ -6,7 +6,9 @@
 		<title>edit student</title>
 		<link rel="stylesheet" href="style.css">
   </head>
-    <?php
+<body>
+<div class="form">
+<?php
     include "./connect.php";
     include "./users.php";
 
@@ -16,10 +18,10 @@
     
     if(isset($_POST['submit'])){
       $student->editstudent($id);
-      header("Location: ./php/teacherTable.php");
+      header("Location: ./teacherTable.php");
     }else if(isset($_POST['deleteStudent'])){
       $student->deletestudent($id);
-      header("Location: ./php/teacherTable.php");
+      header("Location: ./teacherTable.php");
     }else{
 
       echo"
@@ -74,6 +76,8 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 </script>
+</div>
+</body>
 
 
 

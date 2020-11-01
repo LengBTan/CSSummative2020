@@ -1,17 +1,38 @@
+/*import font*/
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/*global*/
 *{
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto;
     text-decoration: none;
 }
 
+/*header*/
 header{
   display: inline-flex;
   justify-content: center;
 
 }
 
+/*body of the page*/
+body{
+  background-color:#c9c9c9;
+  margin: 0;
+  padding: 10px;
+}
+
+
+/*used in the teacherTable.php page*/
 #teacherheader{
-  background-color: white;
+  background-color: black;
   width: 100%;
 }
 
@@ -29,54 +50,6 @@ header{
   margin-top: 1.7rem;
 
 }
-
-
-.button{
-  color: white;
-  background-color: blue;
-  padding: 10px;
-  margin: 10px;
-}
-
-
-body{
-  background-color:#c9c9c9;
-  margin: 0;
-  padding: 0;
-}
-
-.logoutbutton{
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
-  background-color: #65adcc;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 1.5rem;
-}
-
-
-
-.box{
-  display: grid;
-  padding: 10px;
-  background-color: white;
-  margin: auto;
-  width: 50%;
-  height: 50%;
-  
-}
-
-
-
-#editbutton{
-  color: #172E38;
-  text-decoration: none;
-  background-color: #65adcc;
-  padding: 6px 6px;
-  border-radius: 5px;
-}
-
 
 th{
   height: 50px;
@@ -120,6 +93,84 @@ th:last-child {
 th:only-child{
   border-radius: 6px 6px 0 0;
 }
+
+
+
+
+
+
+
+.button{
+  text-align: center;
+  color: white;
+  background-color: #65adcc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+
+
+.logoutbutton{
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: #65adcc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 1.5rem;
+}
+
+
+
+.box{
+  display: grid;
+  padding: 10px;
+  background-color: white;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  
+}
+
+
+
+#editbutton{
+  color: #172E38;
+  text-decoration: none;
+  background-color: #65adcc;
+  padding: 6px 6px;
+  border-radius: 5px;
+}
+
+/*For forms*/
+.form{
+  padding: 50px;
+  margin-top: auto;
+  margin: auto;
+  background-color: white;
+  width: 500px;
+  text-align: center;
+}
+
+input[type=email], input[type=password],input[type=text]{
+  width: 100%;
+  margin: 20px 0 20px 0;
+  font-size: 20px;
+}
+
+input[type=submit]{
+color: white;
+background-color: blue;
+border-radius: 20px;
+border: 0;
+width: 100%;
+padding: 20px;
+margin: 20px 0 0 0;
+}
+
+
 
 
 

@@ -27,7 +27,8 @@ if (isset($_POST['submit'])){
 	<head>
 	<link rel="stylesheet" href="style.css">
 	</head>
-	<div>
+	<div class=form>
+		<h2>Register new Teacher</h2>
 		<form action="" method="POST">
 			<input type="text" name="firstname" placeholder="First name" required> <br>
 			<input type="text" name="lastname" placeholder="Last name" required> <br>

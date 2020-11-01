@@ -33,7 +33,9 @@ if (isset($_POST['submit'])){
 	<title>Register Studnet</title>
 	<link rel="stylesheet" href="style.css">
 	</head>
-	<div>
+	<body>
+	<div class=form>
+		<h2>Student register</h2>
 		<form action="" method="POST">
 			<input type="text" name="firstname" placeholder="First name" required> <br>
 			<input type="text" name="lastname" placeholder="Last name" required> <br>
@@ -45,6 +47,8 @@ if (isset($_POST['submit'])){
 
 		</form>
 
-	</div>
+	</div> 
+	</body>
+	
 
 </html>

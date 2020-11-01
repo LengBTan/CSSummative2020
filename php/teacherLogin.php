@@ -33,7 +33,8 @@ if(isset($_POST['submit'])){
 		<link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div>
+        <div class="form">
+            <h2>Log in as a teacher:</h2>
             <form action="" method="POST">
                 <input type="email" name="email" placeholder="Email" required> <br>
                 <input type="password" name="password" placeholder="Password" required> <br>
