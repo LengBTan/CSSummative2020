@@ -140,6 +140,31 @@ th:only-child{
   border-radius: 5px;
 }
 
+#deleteButton{
+  color: white;
+  background-color: red;
+  border-radius: 20px;
+  border: 0;
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0 0 0;
+  font-size: 20px;
+}
+
+#denyButton{
+  color: white;
+  background-color: blue;
+  border-radius: 20px;
+  border: 0;
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0 0 0;
+  font-size: 20px;
+}
+
+#confirmButton{
+  background-color: red;
+}
 
 
 input[type=email], input[type=password],input[type=text]{

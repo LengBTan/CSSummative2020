@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="style.css">
   </head>
 <body>
-<div class="form">
+<div class="box">
 <?php
     include "./connect.php";
     include "./users.php";
@@ -47,12 +47,11 @@
         <span class='close'>&times;</span>
         <h1>Are you sure you want to delete the student from the list?</h1>
         <form method='POST'>
-          <input type='submit' name='deleteStudent' value='Yes'>
+          <input type='submit' name='deleteStudent' value='Yes' id="confirmButton">
           
           </form>
-          <button onclick = "modal.style.display = 'none'">No</button>
+          <button onclick = "modal.style.display = 'none'" id="denyButton">No</button>
       </div>
-
     </div>
 
 

@@ -57,12 +57,12 @@ if(isset($_GET['logoutsession'])){
 			if(isset($_GET['signin'])){
 
 				$student->loginAttendence($email);
-				echo "<h3>logged in </h3>";
+				echo "<h3>Logged in for attendence </h3>";
 			}
 			
 			if(isset($_GET['logout'])){
 				$student->logoutAttendence($email);
-				//echo "logged out";
+				echo "<h3>Logged out for attendence</h3>";
 			}
 			?>
 
