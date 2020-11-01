@@ -12,18 +12,7 @@ if($teacher->session() && $_SESSION["usertype"] == "teacher"){
 	header("Location: ./teacherTable.php");
 }
 
-//when the button is pressed, logs the user in, if credentials are incorrect, prompts user that credentials are wrong
-if(isset($_POST['submit'])){
-    $email = $_POST["email"];
-    $password = $_POST['password'];
-    $login = $teacher->login($email,$password);
-    if($login){
-        echo "Logged in sucessfully";
 
-    }else{
-        echo"Failed to log in, Email or password may be incorrect.";
-    }
-}
 ?>
 
 
@@ -34,6 +23,23 @@ if(isset($_POST['submit'])){
     </head>
     <body>
         <div class="form">
+
+        <?php
+        //when the button is pressed, logs the user in, if credentials are incorrect, prompts user that credentials are wrong
+        if(isset($_POST['submit'])){
+            $email = $_POST["email"];
+            $password = $_POST['password'];
+            $login = $teacher->login($email,$password);
+            if($login){
+                echo "Logged in sucessfully";
+
+            }else{
+                echo"Failed to log in, Email or password may be incorrect.";
+            }
+        }
+        ?>
+
+        
             <h2>Log in as a teacher:</h2>
             <form action="" method="POST">
                 <input type="email" name="email" placeholder="Email" required> <br>
