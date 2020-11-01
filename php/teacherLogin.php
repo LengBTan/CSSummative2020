@@ -22,7 +22,7 @@ if($teacher->session() && $_SESSION["usertype"] == "teacher"){
 		<link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="form">
+        <div class="box">
 
         <?php
         //when the button is pressed, logs the user in, if credentials are incorrect, prompts user that credentials are wrong

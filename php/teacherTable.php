@@ -6,7 +6,7 @@
 	</head>
 	
 	<body>
-		<header id="teacherheader">
+		<header>
 		<h2 id="title">TeacherDB</h2>
 
 			<?php
@@ -31,7 +31,7 @@
 				}
 
 			?>
-			<a href="?logoutsession" class="logoutbutton">Log out</a>
+			<a href="?logoutsession" id="logoutbutton">Log out</a>
 
 		</header>
 		

@@ -27,14 +27,14 @@ if (isset($_POST['submit'])){
 	<head>
 	<link rel="stylesheet" href="style.css">
 	</head>
-	<div class=form>
+	<div class=box>
 		<h2>Register new Teacher</h2>
 		<form action="" method="POST">
 			<input type="text" name="firstname" placeholder="First name" required> <br>
 			<input type="text" name="lastname" placeholder="Last name" required> <br>
 			<input type="email" name="email" placeholder="Email" required> <br>
 			<input type="password" name="password" placeholder="Password" required> <br>
-			<input type="submit" name="submit" value="register" required> <br>
+			<input type="submit" name="submit" value="Register" required> <br>
 
 
 

@@ -24,16 +24,7 @@ if(isset($_GET['logoutsession'])){
 	header("Location: ./index.php");
 }
 
-if(isset($_GET['signin'])){
 
-	$student->loginAttendence($email);
-	//echo "logged in <br>";
-}
-
-if(isset($_GET['logout'])){
-	$student->logoutAttendence($email);
-	//echo "logged out";
-}
 ?>
 
 
@@ -43,23 +34,44 @@ if(isset($_GET['logout'])){
 	<title>Student Page</title>
 	<link rel="stylesheet" href="style.css">
 	</head>
+
 	<header>
+		<h2 id="title">Student Page</h2>
 	<?php
+	
 
 	if($student->session()){
-		echo "Currently logged in as: ".$_SESSION['email']." <br>";
+		echo "<h4 id='displayuser'>Currently logged in as: ".$_SESSION['email']."</h4>";
+		echo $_SESSION['usertype'];
 	}
 	
 	?>
-	<a href="?logoutsession">Log out</a>
+	<a href="?logoutsession" id="logoutbutton">Log out</a>
 
 
 	</header>
 	<body>
+		<div class="box">
 
-		<a href="?signin">Sign in for attendence</a>
-		<a href="?logout">Sign out for attendence</a>
-		<a href="studentEdit.php">Edit student info</a>    <!-- add some magic-->
+			<?php
+			if(isset($_GET['signin'])){
+
+				$student->loginAttendence($email);
+				echo "<h3>logged in </h3>";
+			}
+			
+			if(isset($_GET['logout'])){
+				$student->logoutAttendence($email);
+				//echo "logged out";
+			}
+			?>
+
+
+			<a href="?signin" class="button">Sign in for attendence</a>
+			<a href="?logout" class="button">Sign out for attendence</a>
+			<a href="studentEdit.php" class="button">Edit student info</a>
+		</div>
+		
 		
 	</body>
 </html>

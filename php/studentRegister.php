@@ -34,7 +34,7 @@ if (isset($_POST['submit'])){
 	<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-	<div class=form>
+	<div class=box>
 		<h2>Student register</h2>
 		<form action="" method="POST">
 			<input type="text" name="firstname" placeholder="First name" required> <br>

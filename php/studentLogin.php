@@ -24,7 +24,7 @@ if($student->session() && $_SESSION["usertype"] == "student"){
 	<link rel="stylesheet" href="style.css">
     </head>
 	<body>
-    <div class="form">
+    <div class="box">
 
     <?php
     //when the button is pressed, logs the user in, if credentials are incorrect, prompts user that credentials are wrong
@@ -35,7 +35,7 @@ if($student->session() && $_SESSION["usertype"] == "student"){
         if($login){
             echo "Logged in succesfully";
         }else{
-            echo "Failed to log in, Email or password may be incorrect.";
+            echo "<h3>Failed to log in, Email or password may be incorrect.</h3>";
         }
     }
     ?>

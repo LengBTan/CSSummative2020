@@ -19,27 +19,23 @@
 header{
   display: inline-flex;
   justify-content: center;
-
+  background-color: black;
+  width: 100%;
+  margin: 0;
 }
 
 /*body of the page*/
 body{
   background-color:#c9c9c9;
   margin: 0;
-  padding: 10px;
 }
 
-
-/*used in the teacherTable.php page*/
-#teacherheader{
-  background-color: black;
-  width: 100%;
-}
 
 #title{
   color: white;
   text-align: left;
   padding: 10px;
+  margin-left: 1.5rem;
   flex-grow: 1;
 }
 
@@ -112,7 +108,7 @@ th:only-child{
 
 
 
-.logoutbutton{
+#logoutbutton{
   color: white;
   font-size: 20px;
   text-decoration: none;
@@ -126,12 +122,12 @@ th:only-child{
 
 .box{
   display: grid;
-  padding: 10px;
+  padding: 50px;
+  margin: 5% auto;
   background-color: white;
-  margin: auto;
-  width: 50%;
-  height: 50%;
-  
+  width: 500px;
+  text-align: center;
+  vertical-align: center;
 }
 
 
@@ -144,15 +140,7 @@ th:only-child{
   border-radius: 5px;
 }
 
-/*For forms*/
-.form{
-  padding: 50px;
-  margin-top: auto;
-  margin: auto;
-  background-color: white;
-  width: 500px;
-  text-align: center;
-}
+
 
 input[type=email], input[type=password],input[type=text]{
   width: 100%;
@@ -168,11 +156,8 @@ border: 0;
 width: 100%;
 padding: 20px;
 margin: 20px 0 0 0;
+font-size: 20px;
 }
-
-
-
-
 
 
 
