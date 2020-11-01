@@ -42,7 +42,6 @@ if(isset($_GET['logoutsession'])){
 
 	if($student->session()){
 		echo "<h4 id='displayuser'>Currently logged in as: ".$_SESSION['email']."</h4>";
-		echo $_SESSION['usertype'];
 	}
 	
 	?>
