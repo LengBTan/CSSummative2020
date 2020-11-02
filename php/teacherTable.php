@@ -53,6 +53,7 @@
 		//email VARCHAR(50),
 		//password varchar(50) NOT NULL,
 		//present BOOLEAN NOT NULL,
+		//dayspresent INT NOT NULL,
 		//reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 		//)";
 
@@ -86,13 +87,14 @@
 						<th>Last name</th>
 						<th>Email</th>
 						<th>Present</th>
+						<th>Days Present</th>
 						<th>Sign in time</th>
 						<th>EDIT</th>
 					</tr>
 				<div id="students">
 					<?php
 						//selects data from the table named "studentDB", and uses the data to display it in a html table
-						$sql = "SELECT id, firstname, lastname, email, present, reg_date FROM studentdb";
+						$sql = "SELECT id, firstname, lastname, email, present,dayspresent, reg_date FROM studentdb";
 						$result = $conn->query($sql);
 
 						if ($result -> num_rows > 0){
@@ -103,6 +105,7 @@
 							<td>". $row["lastname"]."</td>
 							<td>". $row["email"]. "</td>
 							<td>". (($row["present"]) ? 'Present':'Absent') ."</td>
+							<td>". $row["dayspresent"]."</td>
 							<td>". $row["reg_date"]."</td>
 							<td> <a href='edit.php?id=".$row["id"]."' id='editbutton' >•••</a></td>
 							</tr>";

@@ -47,7 +47,7 @@ class Student extends User{
       echo "Email already exists";
 
     }else{
-      $sql = "INSERT INTO StudentDB (firstname, lastname, email, password, present) VALUES ('$firstname', '$lastname', '$email', '$password' , true)";
+      $sql = "INSERT INTO StudentDB (firstname, lastname, email, password, present, dayspresent) VALUES ('$firstname', '$lastname', '$email', '$password' , true, '0')";
 
       if ($conn->query($sql) === TRUE) {
         echo "Registered sucessfully <br>";
@@ -116,9 +116,9 @@ class Student extends User{
     $lastname =$_REQUEST['lastname'];
     $email =$_REQUEST['email'];
     $present =$_REQUEST['present'];
+    $daysPresent =$_REQUEST['dayspresent'];
     //$sql = "UPDATE studentdb set firstname='".$firstname."', lastname='".$lastname."', email='".$email."'"'
-    $sql = "UPDATE studentdb SET firstname='".$firstname."', lastname='".$lastname."', email='".$email."', present='".$present."'
-    WHERE id='".$id."'";
+    $sql = "UPDATE studentdb SET firstname='".$firstname."', lastname='".$lastname."', email='".$email."', present='".$present."', dayspresent='".$daysPresent."' WHERE id='".$id."'";
     if ($conn->query($sql) === TRUE) {
       echo "Record updated successfully";
     } else {
@@ -165,6 +165,17 @@ class Student extends User{
     $result = $conn->query($sql);
     while ($row = $result -> fetch_assoc()){
       $email = $row['email'];
+    }
+    return $email;
+
+  }
+
+  function getDaysPresent($id){
+    include "connect.php";
+    $sql = "SELECT * FROM studentDB where id='".$id."'";
+    $result = $conn->query($sql);
+    while ($row = $result -> fetch_assoc()){
+      $email = $row['dayspresent'];
     }
     return $email;
 

@@ -18,27 +18,41 @@ $student = new Student();
 <body>
   
 <div class="box">
+
+<h1>Edit Student</h1>
   <?php
     if(isset($_POST['submit'])){
+      $daysPresent = $_POST['dayspresent'];
+      if($daysPresent<0){
+        echo "not a valid number";
+      }else{
       $student->editstudent($id);
       header("Location: ./teacherTable.php");
-    }else if(isset($_POST['deleteStudent'])){
+        
+      }
+
+      
+    }
+    if(isset($_POST['deleteStudent'])){
       $student->deletestudent($id);
       header("Location: ./teacherTable.php");
     }else{
-
-      echo"
-        <form method='POST'>
-        First name: <input type='text' name='firstname' autocomplete='off' value='".$student->getFirstName($id)."'   required> <br>
-        Last name: <input type='text' name='lastname' autocomplete='off' value='".$student->getLastName($id)."' required> <br>
-        Email: <input type='email' name='email' autocomplete='off' value='".$student->getEmail($id)."' required> <br>
-        Present: <input type='radio' name='present' value='1' required><br>
-        Not present: <input type='radio' name='present' value='0' required><br>
-        <input name='submit' type='submit' value='Update Student'>
-        </form>
-      ";
+    
+      
     }
+    echo"
+    <form method='POST'>
+    <h2> First name: </h2> <input type='text' name='firstname' autocomplete='off' value='".$student->getFirstName($id)."'   required>
+    Last name: <input type='text' name='lastname' autocomplete='off' value='".$student->getLastName($id)."' required> 
+    Email: <input type='email' name='email' autocomplete='off' value='".$student->getEmail($id)."' required> 
+    Present: <input type='radio' name='present' value='1' required><br>
+    Not present: <input type='radio' name='present' value='0' required><br>
+    Days Present: <input type='number' name='dayspresent' autocomplete='off' value='".$student->getDaysPresent($id)."' required> <br>
+    <input name='submit' type='submit' value='Update Student'>
+    </form>
+  ";
   ?>
+
   <!-- Show the modal -->
   <button id='deleteButton'>Delete Student</button>
 </div>
