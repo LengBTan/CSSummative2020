@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="style.css">
   </head>
     <body>
-    <div class="form">
+    <div class="box">
     <?php
     include "./connect.php";
     include "./users.php";
