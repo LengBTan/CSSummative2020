@@ -243,7 +243,7 @@ font-size: 20px;
   margin: 20px;
 
 }
-
+/*close or x button when hovered over*/
 .close:hover,
 .close:focus {
   color: #343963;
