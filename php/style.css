@@ -244,8 +244,7 @@ font-size: 20px;
 
 }
 /*close or x button when hovered over*/
-.close:hover,
-.close:focus {
+.close:hover {
   color: #343963;
   background-color: #9094B0;
   text-decoration: none;
