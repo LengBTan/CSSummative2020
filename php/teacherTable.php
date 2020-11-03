@@ -12,18 +12,21 @@
 			<?php
 				include "./connect.php";
 				include "./users.php";
-
 				session_start();
 				$teacher = new Teacher();
+				$student = new Student();
 
+				//checks if the current session is a student, if its true, redirect user to index.php
 				if(!$teacher->session()||$_SESSION["usertype"] == "student"){
 					header("Location: ./index.php");
 				}
 
+				//if user is logged in as a teacher, display who is logged in
 				if($teacher->session()){
 					echo "<h4 id='displayuser'>Currently logged in as: ".$_SESSION['email']."</h4>";
 				}
 
+				//if the 'logoutsession' button is pressed, logs user out and redirects them to index.php
 				if(isset($_GET['logoutsession'])){
 					$teacher->logout();
 					header("Location: ./index.php");
@@ -40,41 +43,51 @@
 
 		<?php
 		
+		//creates table called StudentDB, with headers of id, firstname, lastname, email, password, present, dayspresent, and reg_date
+		//id is BIGINT due to the int being 10 digits, which may not be long enough.
+		/*$sql = "CREATE TABLE StudentDB (
+		id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		firstname VARCHAR(30) NOT NULL, 
+		lastname VARCHAR(30) NOT NULL,
+		email VARCHAR(50),
+		password varchar(50) NOT NULL,
+		present BOOLEAN NOT NULL,
+		dayspresent INT NOT NULL,
+		daysabsent INT NOT NULL,
+		reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+		)";
+		*/
 
-		
 
-		
+		/*creates table called teacherDB, with headers of id, firstname, lastname, email, password, and reg_date
+		$sql = "CREATE TABLE teacherDB (
+		id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		firstname VARCHAR(30) NOT NULL,
+		lastname VARCHAR(30) NOT NULL,
+		email VARCHAR(50) NOT NULL,
+		password varchar(50) NOT NULL,
+		reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+		)";
+		*/
 
-		//creates table called StudentDB, with headers of id, firstname, lastname, email, password, present, and reg_date
-		//$sql = "CREATE TABLE StudentDB (
-		//id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-		//firstname VARCHAR(30) NOT NULL, 
-		//lastname VARCHAR(30) NOT NULL,
-		//email VARCHAR(50),
-		//password varchar(50) NOT NULL,
-		//present BOOLEAN NOT NULL,
-		//dayspresent INT NOT NULL,
-		//reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-		//)";
-
-		//creates table called teacherDB, with headers of id, firstname, lastname, email, password, and reg_date
-		//$sql = "CREATE TABLE teacherDB (
-		//id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-		//firstname VARCHAR(30) NOT NULL,
-		//lastname VARCHAR(30) NOT NULL,
-		//email VARCHAR(50) NOT NULL,
-		//password varchar(50) NOT NULL,
-		//reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-		//)";
+		////Creates event that increments the dayspresent variable every day at 3pm
+		//$sql = CREATE EVENT IF NOT EXISTS presentadd ON SCHEDULE EVERY 1 DAY STARTS '2020-11-02 15:00:00' DO UPDATE `studentdb` SET dayspresent = dayspresent + 1 WHERE present = 1
 	
+		////creates event that increments the daysabsent variable everyday at 3pm on weekdays if the student is absent
+		//$sql = CREATE EVENT IF NOT EXISTS absentadd ON SCHEDULE EVERY 1 DAY STARTS '2020-11-02 15:00:00' DO UPDATE studentdb SET daysabsent= IF (DAYSOFWEEK(curdate()) BETWEEN 2 AND 6, 'daysabsent'= daysabsent + 1, daysabsent) WHERE present = 0
 
-		//checks if table has been created.
-		//if ($conn->query($sql) === TRUE) {
-		//	echo "Table created successfully <br>";
-		//} else {
-		//	echo "Error creating table: <br>" . $conn->error . "<br>";
-		//}
 
+		//checks if query is successful.
+		/*if ($conn->query($sql) === TRUE) {
+			echo "query ran sucessfully<br>";
+		} else {
+			echo "Error running query: <br>" . $conn->error . "<br>";
+		}
+		*/
+
+		//ALTER TABLE table_name AUTO_INCREMENT = value; //to reset the id increment in mysql
+
+		//
 		
 		?>
 
@@ -82,43 +95,76 @@
 		<div id="tablebox">
 			<table>
 					<tr>
-						<th>Id</th>
-						<th>First name</th>
-						<th>Last name</th>
+						<th>Id<br> <a href="?sort=idASC">▲</a> <a href="?sort=idDESC">▼</a> </th>
+						<th>First name <br> <a href="?sort=FnameASC">▲</a> <a href="?sort=FnameDESC">▼</a></th>
+						<th>Last name <br> <a href="?sort=LnameASC">▲</a> <a href="?sort=LnameDESC">▼</a> </th>
 						<th>Email</th>
 						<th>Present</th>
 						<th>Days Present</th>
-						<th>Sign in time</th>
+						<th>Days Absent</th>
+						<th>% Days present</th>
+						<th>Sign in time <a href="?sort=regASC">▲</a> <a href="?sort=regDESC">▼</a></th>
 						<th>EDIT</th>
 					</tr>
 				<div id="students">
 					<?php
 						//selects data from the table named "studentDB", and uses the data to display it in a html table
-						$sql = "SELECT id, firstname, lastname, email, present,dayspresent, reg_date FROM studentdb";
-						$result = $conn->query($sql);
-
-						if ($result -> num_rows > 0){
-
-							while($row = $result -> fetch_assoc())
-							echo "<tr><td>". $row["id"]. "</td>
-							<td>". $row["firstname"] ."</td>
-							<td>". $row["lastname"]."</td>
-							<td>". $row["email"]. "</td>
-							<td>". (($row["present"]) ? 'Present':'Absent') ."</td>
-							<td>". $row["dayspresent"]."</td>
-							<td>". $row["reg_date"]."</td>
-							<td> <a href='edit.php?id=".$row["id"]."' id='editbutton' >•••</a></td>
-							</tr>";
+						if(isset($_GET['sort'])){
+							switch($_GET['sort']){
+								case "idASC"://acending id 
+									$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb ORDER BY id ASC";
+									$result = $conn->query($sql);
+									displaytable($sql,$result);
+								break;
+	
+								case "idDESC"://decending id 
+									$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb ORDER BY id DESC";
+									$result = $conn->query($sql);
+									displaytable($sql,$result);
+								break ;
+								case "FnameASC"://acending firstname 
+									$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb ORDER BY firstname ASC";
+									$result = $conn->query($sql);
+									displaytable($sql,$result);
+									
+								break;
+								case "FnameDESC"://decending firstname 
+									$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb ORDER BY firstname DESC";
+									$result = $conn->query($sql);
+									displaytable($sql,$result);
+								break;
+								case "LnameASC"://acending lastname 
+									$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb ORDER BY lastname ASC";
+									$result = $conn->query($sql);
+									displaytable($sql,$result);
+									
+								break;
+								case "LnameDESC"://decending lastname
+									$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb ORDER BY lastname DESC";
+									$result = $conn->query($sql);
+									displaytable($sql,$result);
+									
+								break;
+								case "regASC"://acending sign in time
+									$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb ORDER BY reg_date ASC";
+									$result = $conn->query($sql);
+									displaytable($sql,$result);
+									
+								break;
+								case "regDESC"://decending sign in time
+									$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb ORDER BY reg_date DESC";
+									$result = $conn->query($sql);
+									displaytable($sql,$result);
+									
+								break;
+							}
 						}else{
-							echo "no students on the list.";
+							$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb";
+							$result = $conn->query($sql);
+							displaytable($sql,$result);
 						}
-
-						$conn -> close();//close the connection
-
-
-						echo "</table>";
-
-						//ALTER TABLE table_name AUTO_INCREMENT = value; //to reset the id increment in mysql
+						
+						
 
 					?>
 				</div>
@@ -126,3 +172,44 @@
 		</div>
 	</body>
 </html>
+
+
+<?php
+
+/**
+ * displays table
+ */
+function displaytable($sql,$result){
+	include "./connect.php";
+
+	//$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb";
+	//$result = $conn->query($sql);
+
+	//if the number of rows in the sql table is more than 0, for each row, display the columns of the table, else prompt user that there is no student on the list.
+	if ($result -> num_rows > 0){
+
+		while($row = $result -> fetch_assoc())
+
+		echo "<tr><td>". $row["id"]. "</td>
+		<td>". $row["firstname"] ."</td>
+		<td>". $row["lastname"]."</td>
+		<td>". $row["email"]. "</td>
+		<td>". (($row["present"]) ? 'Present':'Absent') ."</td>
+		<td>". $row["dayspresent"]."</td>
+		<td>". $row["daysabsent"]."</td>
+		<td>". (int)($row["dayspresent"]/($row["dayspresent"] + $row["daysabsent"])*100)."%</td>
+		<td>". $row["reg_date"]."</td>
+		<td> <a href='edit.php?id=".$row["id"]."' id='editbutton' >•••</a></td>
+		</tr>";
+	}else{
+		echo "no students on the list.";
+	}
+
+	$conn -> close();//close the connection
+
+
+	echo "</table>";
+}
+
+
+?>

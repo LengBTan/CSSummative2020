@@ -11,21 +11,6 @@ $student = new Student();
 if($student->session()){
 	header("Location: studentPage.php");
 }
-
-if (isset($_POST['submit'])){
-	$firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
-    $email = $_POST["email"];
-	$password = $_POST['password'];
-
-	$student->register($firstname,$lastname,$email,$password);
-}
-
-
-
-
-
-
 ?>
 
 <html>
@@ -35,6 +20,21 @@ if (isset($_POST['submit'])){
 	</head>
 	<body>
 	<div class=box>
+
+	<?php
+	if (isset($_POST['submit'])){
+		$firstname = $_POST["firstname"];
+		$lastname = $_POST["lastname"];
+		$email = $_POST["email"];
+		$password = $_POST['password'];
+	
+		$student->register($firstname,$lastname,$email,$password);
+	}
+	
+	
+	?>
+
+
 		<h2>Student register</h2>
 		<form action="" method="POST">
 			<input type="text" name="firstname" placeholder="First name" required> <br>

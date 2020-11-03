@@ -11,7 +11,7 @@
 /*global*/
 *{
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'roboto';
     text-decoration: none;
 }
 
@@ -62,10 +62,10 @@ th{
   background-color: white;
   text-align: center;
   vertical-align: center;
-
+  min-width: fit-content;
   
   border-radius: 10px;
-  width: 90%;
+  width: 80%;
   
 }
 
@@ -127,18 +127,24 @@ th:only-child{
 
 .box{
   display: grid;
-  padding: 50px;
-  margin: 10% auto;
+  padding: 20px;
+  margin: 1% auto;
   background-color: white;
-  width: 500px;
+  width: 700px;
   text-align: center;
   vertical-align: center;
 }
 
 
-input[type=email], input[type=password],input[type=text]{
-  width: 100%;
-  margin: 20px 0 20px 0;
+label{
+  text-align: left;
+  display: inline-block;
+  width: 100px;
+}
+
+input[type=email], input[type=password],input[type=text],select, input[type=number]{
+  width: 70%;
+  margin: 10px 0 0px 0;
   font-size: 20px;
 }
 

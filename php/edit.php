@@ -36,18 +36,19 @@ $student = new Student();
     if(isset($_POST['deleteStudent'])){
       $student->deletestudent($id);
       header("Location: ./teacherTable.php");
-    }else{
-    
-      
     }
     echo"
     <form method='POST'>
-    <h2> First name: </h2> <input type='text' name='firstname' autocomplete='off' value='".$student->getFirstName($id)."'   required>
-    Last name: <input type='text' name='lastname' autocomplete='off' value='".$student->getLastName($id)."' required> 
-    Email: <input type='email' name='email' autocomplete='off' value='".$student->getEmail($id)."' required> 
-    Present: <input type='radio' name='present' value='1' required><br>
-    Not present: <input type='radio' name='present' value='0' required><br>
-    Days Present: <input type='number' name='dayspresent' autocomplete='off' value='".$student->getDaysPresent($id)."' required> <br>
+    <label> First name: </label> <input type='text' name='firstname' autocomplete='off' value='".$student->getFirstName($id)."'   required><br>
+    <label>Last name:</label> <input type='text' name='lastname' autocomplete='off' value='".$student->getLastName($id)."' required> <br>
+    <label>Email:</label> <input type='email' name='email' autocomplete='off' value='".$student->getEmail($id)."' required> <br>
+   
+    <label>Present:</label> <select name='present'>
+      <option value='1'>Present</option>
+      <option value='0'>Absent</option>
+    </select><br>
+    <label> Days Present: </label> <input type='number' name='dayspresent' min='1' value='".$student->getDaysPresent($id)."' required> <br>
+    <label>Days Absent:</label> <input type='number' name='daysabsent' min='0' value='".$student->getDaysAbsent($id)."' required><br>
     <input name='submit' type='submit' value='Update Student'>
     </form>
   ";
