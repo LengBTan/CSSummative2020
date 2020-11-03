@@ -103,7 +103,7 @@
 						<th>Days Present</th>
 						<th>Days Absent</th>
 						<th>% Days present</th>
-						<th>Sign in time <a href="?sort=regASC">▲</a> <a href="?sort=regDESC">▼</a></th>
+						<th>Sign in time <br> <a href="?sort=regASC">▲</a> <a href="?sort=regDESC">▼</a></th>
 						<th>EDIT</th>
 					</tr>
 				<div id="students">
