@@ -128,6 +128,10 @@ th:last-child {
   padding: 10px;
   margin: 10px;
 }
+/*button class when cursor is hovering over it*/
+.button:hover{
+  background-color: #343963;
+}
 
 
 
@@ -140,6 +144,10 @@ th:last-child {
   border-radius: 5px;
   padding: 10px;
   margin: 1.5rem;
+}
+/*logout button when cursor is hovering over it*/
+#logoutbutton:hover{
+  background-color: #343963;
 }
 
 /*labels*/
@@ -169,6 +177,10 @@ padding: 20px;
 margin: 20px 0 0 0;
 font-size: 20px;
 }
+/*submit button when cursor is hovering over it*/
+input[type=submit]:hover{
+  background-color: #343963;
+}
 
 /*edit button*/
 #editbutton{
@@ -178,36 +190,15 @@ font-size: 20px;
   padding: 6px 6px;
   border-radius: 5px;
 }
-
-/*delete button*/
-#deleteButton{
-  color: white;
-  background-color: #9094B0;
-  border-radius: 20px;
-  border: 0;
-  width: 100%;
-  padding: 20px;
-  margin: 20px 0 0 0;
-  font-size: 20px;
+/*edit button when cursor is hovering over it*/
+#editbutton:hover{
+  background-color: #343963;
+  color: #7986E8;
 }
 
-/*deny button used to cancel deleting student*/
-#denyButton{
-  color: white;
-  background-color: #7986E8;
-  border-radius: 20px;
-  border: 0;
-  width: 50%;
-  padding: 20px;
-  margin: 20px 0 0 0;
-  font-size: 20px;
-}
 
-/*confirm button, used before confirming to delete student*/
-#confirmButton{
-  background-color: red;
-  width: 50%;
-}
+
+
 
 
 /* modal */
@@ -227,8 +218,8 @@ font-size: 20px;
   max-width: 100%;
   text-align: center;
   background-color: #ffffff;
-
-
+  border-radius: 10px;
+  min-width: 200px;
 }
 
 /* close button, or x button */
@@ -251,6 +242,47 @@ font-size: 20px;
   cursor: pointer;
 }
 
+/*delete button*/
+#deleteButton{
+  color: white;
+  background-color: #9094B0;
+  border-radius: 20px;
+  border: 0;
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0 0 0;
+  font-size: 20px;
+}
+/*delete button when cursor is hovering over it*/
+#deleteButton:hover{
+  background-color: #343963;
+}
+
+/*deny button used to cancel deleting student in the modal*/
+#denyButton{
+  color: white;
+  background-color: #7986E8;
+  border-radius: 20px;
+  border: 0;
+  width: 50%;
+  padding: 20px;
+  margin: 20px 0 0 0;
+  font-size: 20px;
+}
+/*deny button when cursor is hovering over it*/
+#denyButton:hover{
+  background-color: #343963;
+}
+
+/*confirm button, used before confirming to delete student in the modal*/
+#confirmButton{
+  background-color: red;
+  width: 50%;
+}
+/*confirm button when cursor is hovering over it*/
+#confirmButton:hover{
+  background-color: #8d3535;
+}
 
 
 
