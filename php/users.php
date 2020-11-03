@@ -38,8 +38,8 @@ class Student extends User{
 
     }else{
 
-      $sql = "INSERT INTO StudentDB (firstname, lastname, email, password, present, dayspresent, daysabsent,) VALUES ('$firstname', '$lastname', '$email', '$password' , true, '1', '0')"; //sql query
-
+      $sql = "INSERT INTO StudentDB (firstname, lastname, email, password, present, dayspresent, daysabsent) VALUES ('$firstname', '$lastname', '$email', '$password' , true, '1', '0')"; //sql query
+      $result = mysqli_query($conn,$sql);
       //insert query to database and redirect user to studentPage.php
       if ($conn->query($sql) === TRUE) {
         echo "Registered sucessfully <br>";
@@ -59,7 +59,7 @@ class Student extends User{
     include "connect.php";
     $password = md5($password);
     
-    $sql = "SELECT * FROM studentDB WHERE email = '".$email."' and password = '".md5($password)."'";
+    $sql = "SELECT * FROM studentDB WHERE email = '".$email."' and password = '".$password."'";
 
     //checks if the email is in the database by going through each row and checking
     $result = mysqli_query($conn,$sql) or die(mysqli_error());

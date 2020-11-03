@@ -110,7 +110,7 @@
 					<?php
 						//selects data from the table named "studentDB", and uses the data to display it in a html table
 						if(isset($_GET['sort'])){
-							
+
 							switch($_GET['sort']){
 								case "idASC"://acending id 
 									$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb ORDER BY id ASC";

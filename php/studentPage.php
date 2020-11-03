@@ -68,7 +68,7 @@ if(isset($_GET['logoutsession'])){
 
 			<a href="?signin" class="button">Sign in for attendence</a>
 			<a href="?logout" class="button">Sign out for attendence</a>
-			<a href="studentEdit.php" class="button">Edit student info</a>
+			<!--<a href="studentEdit.php" class="button">Edit student info</a>-->
 		</div>
 		
 		

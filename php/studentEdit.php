@@ -36,14 +36,15 @@
         $sql = "UPDATE studentdb SET firstname='".$firstname."', lastname='".$lastname."', email='".$email."',password=".$password."
         WHERE email='".$emailsession."'";
         $result = $conn->query($sql);
+        
       
     }else{
         echo"
         <form method='POST'>
-		First name: <input type='text' name='firstname' autocomplete='off'    required> <br>
-	    Last name: <input type='text' name='lastname' autocomplete='off'  required> <br>
-        Email: <input type='email' name='email' autocomplete='off' required> <br>
-        Password: <input type='password' name='password' autocomplete='off' required> <br>
+		<label>First name:</label>    <input type='text' name='firstname' autocomplete='off'    required> <br>
+	    <label>Last name:</label>  <input type='text' name='lastname' autocomplete='off'  required> <br>
+        <label>Email:</label>  <input type='email' name='email' autocomplete='off' required> <br>
+        <label>Password:</label>  <input type='password' name='password' autocomplete='off' required> <br>
         <input name='submit' type='submit' value='Update Student'>
         </form>
         ";
