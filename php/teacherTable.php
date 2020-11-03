@@ -66,11 +66,15 @@
 		)";
 		*/
 
+		//Creates event that resets all present booleans to false at 7am
+		//$sql = CREATE EVENT reset_present ON SCHEDULE EVERY 1 DAY STARTS '2020-11-02 07:00:00' DO UPDATE `studentdb` SET present = false;
+
+
 		////Creates event that increments the dayspresent variable every day at 3pm
-		//$sql = CREATE EVENT IF NOT EXISTS presentadd ON SCHEDULE EVERY 1 DAY STARTS '2020-11-02 15:00:00' DO UPDATE `studentdb` SET dayspresent = dayspresent + 1 WHERE present = 1
+		//$sql = CREATE EVENT IF NOT EXISTS presentadd ON SCHEDULE EVERY 1 DAY STARTS '2020-11-02 15:00:00' DO UPDATE `studentdb` SET dayspresent = dayspresent + 1 WHERE present = 1;
 	
 		////creates event that increments the daysabsent variable everyday at 3pm on weekdays if the student is absent
-		//$sql = CREATE EVENT IF NOT EXISTS absentadd ON SCHEDULE EVERY 1 DAY STARTS '2020-11-02 15:00:00' DO UPDATE studentdb SET daysabsent= IF (DAYSOFWEEK(curdate()) BETWEEN 2 AND 6, 'daysabsent'= daysabsent + 1, daysabsent) WHERE present = 0
+		//$sql = CREATE EVENT IF NOT EXISTS absentadd ON SCHEDULE EVERY 1 DAY STARTS '2020-11-02 15:00:00' DO UPDATE studentdb SET daysabsent= IF (DAYSOFWEEK(curdate()) BETWEEN 2 AND 6, 'daysabsent'= daysabsent + 1, daysabsent) WHERE present = 0;
 
 
 		//checks if query is successful.
