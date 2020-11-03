@@ -31,100 +31,7 @@ body{
   margin: 0;
 }
 
-
-#title{
-  color: white;
-  text-align: left;
-  padding: 10px;
-  margin-left: 1.5rem;
-  flex-grow: 1;
-  font-family: roboto;
-}
-
-#displayuser{
-  color: white;
-  text-align: left;
-  padding: 10px;
-  margin-top: 1.7rem;
-  font-family: roboto;
-}
-
-th{
-  height: 50px;
-  background-color: #7986E8;
-}
-
-#tablebox{
-
-  display: grid;
-  padding: 10px;
-  margin: 5% auto;
-  background-color: white;
-  text-align: center;
-  vertical-align: center;
-  min-width: fit-content;
-  
-  border-radius: 10px;
-  width: 80%;
-  
-}
-
-table{
-  margin: auto;
-  width: 100%;
-  border-collapse: collapse;
-  border-radius: 50px;
-}
-
-th, td{
-  /*border: 1px solid #ddd;*/
-  padding: 10px;
-}
-
-tr:nth-child(even) {
-  background-color: rgb(235, 235, 235);
-}
-th:first-child {
-  border-radius: 6px 0 0 0;
-}
-th:last-child {
-  border-radius: 0 6px 0 0;
-}
-th:only-child{
-  border-radius: 6px 6px 0 0;
-}
-
-
-
-
-
-
-
-.button{
-  position: relative;
-  text-align: center;
-  color: white;
-  background-color: #7A83E6;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px;
-}
-
-
-
-
-#logoutbutton{
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
-  background-color: #7A83E6;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 1.5rem;
-}
-
-
-
+/*container box class*/
 .box{
   display: grid;
   padding: 20px;
@@ -137,12 +44,112 @@ th:only-child{
 }
 
 
+/*title of header*/
+#title{
+  color: white;
+  text-align: left;
+  padding: 10px;
+  margin-left: 1.5rem;
+  flex-grow: 1;
+  font-family: roboto;
+}
+/*text used for displaying user*/
+#displayuser{
+  color: white;
+  text-align: left;
+  padding: 10px;
+  margin-top: 1.7rem;
+  font-family: roboto;
+}
+
+/*table header*/
+th{
+  height: 50px;
+  background-color: #7986E8;
+  padding:10px;
+}
+
+/*table container*/
+#tablebox{
+  display: grid;
+  padding: 10px;
+  margin: 5% auto;
+  background-color: white;
+  text-align: center;
+  vertical-align: center;
+  min-width: fit-content;
+  border-radius: 10px;
+  width: 80%;
+  
+}
+
+/*hyperlink*/
+a{
+  color: #4F5161;
+}
+/*hyperlink when mouse cursor is being hovered over*/
+a:hover{
+ color: white;
+}
+
+/*table*/
+table{
+  margin: auto;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 50px;
+}
+
+/*table cells*/
+td{
+  padding: 10px;
+}
+
+/*even table rows*/
+tr:nth-child(even) {
+  background-color: rgb(235, 235, 235);
+}
+/*table header*/
+th:first-child {
+  border-radius: 6px 0 0 0;
+}
+/*table header*/
+th:last-child {
+  border-radius: 0 6px 0 0;
+}
+
+/*button class*/
+.button{
+  position: relative;
+  text-align: center;
+  color: white;
+  background-color: #7A83E6;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+
+/*logout button*/
+#logoutbutton{
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: #7A83E6;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 1.5rem;
+}
+
+/*labels*/
 label{
   text-align: left;
   display: inline-block;
   width: 100px;
 }
 
+/*inputs (textboxes, password, email, and number inputs)*/
 input[type=email], input[type=password],input[type=text],select, input[type=number]{
   width: 70%;
   margin: 30px 0 0px 0;
@@ -151,6 +158,7 @@ input[type=email], input[type=password],input[type=text],select, input[type=numb
   border-bottom: 2px solid;
 }
 
+/*submit button*/
 input[type=submit]{
 color: white;
 background-color: #7986E8;
@@ -162,7 +170,7 @@ margin: 20px 0 0 0;
 font-size: 20px;
 }
 
-
+/*edit button*/
 #editbutton{
   color: #343963;
   text-decoration: none;
@@ -171,6 +179,7 @@ font-size: 20px;
   border-radius: 5px;
 }
 
+/*delete button*/
 #deleteButton{
   color: white;
   background-color: #9094B0;
@@ -182,15 +191,7 @@ font-size: 20px;
   font-size: 20px;
 }
 
-a{
-  color: #4F5161;
-}
-
-a:hover{
- color: white;
-}
-
-
+/*deny button used to cancel deleting student*/
 #denyButton{
   color: white;
   background-color: #7986E8;
@@ -202,13 +203,14 @@ a:hover{
   font-size: 20px;
 }
 
+/*confirm button, used before confirming to delete student*/
 #confirmButton{
   background-color: red;
   width: 50%;
 }
 
 
-/* The Modal (background) */
+/* modal */
 .modal {
   display: none; /* Hidden by default */
   position: absolute;
@@ -218,7 +220,7 @@ a:hover{
   background-color: rgba(0,0,0,0.5);
 }
 
-/* Modal Content */
+/* modal content */
 .modal-content {
   padding: 30px;
   margin: 20px 200px;
@@ -229,17 +231,23 @@ a:hover{
 
 }
 
-/* The Close Button */
+/* close button, or x button */
 .close {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  background-color: #7986E8 ;
+  padding: 1px 11px 1px 11px;
+  border-radius: 5px;
+  margin: 20px;
+
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #343963;
+  background-color: #9094B0;
   text-decoration: none;
   cursor: pointer;
 }
