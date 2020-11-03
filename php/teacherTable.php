@@ -37,10 +37,6 @@
 
 		</header>
 		
-
-
-
-
 		<?php
 		
 		//creates table called StudentDB, with headers of id, firstname, lastname, email, password, present, dayspresent, and reg_date
@@ -95,6 +91,7 @@
 		<div id="tablebox">
 			<table>
 					<tr>
+						<!--header of table-->
 						<th>Id<br> <a href="?sort=idASC">▲</a> <a href="?sort=idDESC">▼</a> </th>
 						<th>First name <br> <a href="?sort=FnameASC">▲</a> <a href="?sort=FnameDESC">▼</a></th>
 						<th>Last name <br> <a href="?sort=LnameASC">▲</a> <a href="?sort=LnameDESC">▼</a> </th>
@@ -109,6 +106,7 @@
 				<div id="students">
 					<?php
 						//selects data from the table named "studentDB", and uses the data to display it in a html table
+						//If sort column button pressed, switch statement for each scenario of sorting columns, else display default table
 						if(isset($_GET['sort'])){
 
 							switch($_GET['sort']){
@@ -179,12 +177,10 @@
 
 /**
  * displays table
+ * parameters are the sql queries for sorting columns.
  */
 function displaytable($sql,$result){
 	include "./connect.php";
-
-	//$sql = "SELECT id, firstname, lastname, email, present, dayspresent, daysabsent, reg_date FROM studentdb";
-	//$result = $conn->query($sql);
 
 	//if the number of rows in the sql table is more than 0, for each row, display the columns of the table, else prompt user that there is no student on the list.
 	if ($result -> num_rows > 0){
