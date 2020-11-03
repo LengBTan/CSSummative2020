@@ -4,6 +4,18 @@ include "./users.php";
 
 $id = $_REQUEST['id'];
 $student = new Student();
+$teacher = new Teacher();
+session_start();
+
+//checks if user is logged in
+if(!(($_SESSION["usertype"]) == "teacher")){
+	header("Location: ./index.php");
+}
+
+
+
+
+
 ?>
 
 

@@ -98,6 +98,7 @@ class Student extends User{
     $sql = "UPDATE studentdb SET present='0' WHERE email='$email'";
 	  $result = $conn->query($sql);
   }
+  
   function editstudent($id){
     include "connect.php";
     $sql= "SELECT * FROM studentdb where id='".$id."'";

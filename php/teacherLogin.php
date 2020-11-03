@@ -6,7 +6,6 @@ require "./users.php";
 $teacher = new Teacher();
 session_start();
 
-
 //checks if user is logged in
 if($teacher->session() && $_SESSION["usertype"] == "teacher"){
 	header("Location: ./teacherTable.php");
