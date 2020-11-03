@@ -8,6 +8,7 @@
 	<body>
 		
 	<div class="box">
+		<h1>Student attendence application</h1>
 	<h3>Students</h3>
 	
 	<a href="./studentRegister.php" class="button">Register</a>
