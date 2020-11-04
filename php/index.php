@@ -11,9 +11,10 @@
 		<h1>Student attendence application</h1>
 	<h3>Students</h3>
 	
+	<a href="./studentLogin.php" class="button">Student Login</a>
 	<a href="./studentRegister.php" class="button">Register</a>
 
-	<a href="./studentLogin.php" class="button">Student Login</a>
+	
 
 
 	<h3>Teachers</h3>
