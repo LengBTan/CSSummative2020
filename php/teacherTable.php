@@ -17,7 +17,7 @@
 				$student = new Student();
 
 				//checks if the current session is a student, if its true, redirect user to index.php
-				if(!$teacher->session()||$_SESSION["usertype"] == "student"){
+				if($_SESSION["usertype"] == "student"){
 					header("Location: ./index.php");
 				}
 
