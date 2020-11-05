@@ -97,15 +97,15 @@
 					<tr>
 						<!--header of table-->
 						<th>Id<br> <a href="?sort=idASC">▲</a> <a href="?sort=idDESC">▼</a> </th>
-						<th>First name <br> <a href="?sort=FnameASC">▲</a> <a href="?sort=FnameDESC">▼</a></th>
-						<th>Last name <br> <a href="?sort=LnameASC">▲</a> <a href="?sort=LnameDESC">▼</a> </th>
+						<th>First Name <br> <a href="?sort=FnameASC">▲</a> <a href="?sort=FnameDESC">▼</a></th>
+						<th>Last Name <br> <a href="?sort=LnameASC">▲</a> <a href="?sort=LnameDESC">▼</a> </th>
 						<th>Email</th>
 						<th>Present</th>
 						<th>Days Present</th>
 						<th>Days Absent</th>
-						<th>% Days present</th>
-						<th>Sign in time <br> <a href="?sort=regASC">▲</a> <a href="?sort=regDESC">▼</a></th>
-						<th>EDIT</th>
+						<th>% Days Present</th>
+						<th>Sign in Time <br> <a href="?sort=regASC">▲</a> <a href="?sort=regDESC">▼</a></th>
+						<th>Edit</th>
 					</tr>
 				<div id="students">
 					<?php

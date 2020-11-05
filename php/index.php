@@ -12,7 +12,7 @@
 	<h3>Students</h3>
 	
 	<a href="./studentLogin.php" class="button">Student Login</a>
-	<a href="./studentRegister.php" class="button">Register</a>
+	<a href="./studentRegister.php" class="button">Student Register</a>
 
 	
 
