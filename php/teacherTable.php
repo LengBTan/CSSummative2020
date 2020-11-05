@@ -17,7 +17,7 @@
 				$student = new Student();
 
 				//checks if the current session is a student, if its true, redirect user to index.php
-				if($_SESSION["usertype"] == "student"){
+				if(!$teacher->session()||$_SESSION["usertype"] == "student"){
 					header("Location: ./index.php");
 				}
 
@@ -79,7 +79,7 @@
 
 		//checks if query is successful.
 		/*if ($conn->query($sql) === TRUE) {
-			echo "query ran sucessfully<br>";
+			echo "query ran successfully<br>";
 		} else {
 			echo "Error running query: <br>" . $conn->error . "<br>";
 		}

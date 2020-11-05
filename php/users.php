@@ -41,8 +41,9 @@ class Student extends User{
       $sql = "INSERT INTO StudentDB (firstname, lastname, email, password, present, dayspresent, daysabsent) VALUES ('$firstname', '$lastname', '$email', '$password' , true, '1', '0')"; //sql query
       //insert query to database and redirect user to studentPage.php
       if ($conn->query($sql) === TRUE) {
-        echo "Registered sucessfully <br>";
-        header("Location: studentPage.php");
+        
+        header("Location: studentLogin.php?registered");
+        echo "Registered successfully <br>";
       } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
       }
@@ -124,7 +125,7 @@ class Student extends User{
     $sql = "DELETE FROM studentdb WHERE id='".$id."'";   
     //checks if row in table is deleted.
     if ($conn->query($sql) === TRUE) {
-     echo "Deleted record sucessfully";
+     echo "Deleted record successfully";
     } else {
       echo "Error deleting record: " . $conn->error;
     }
@@ -218,8 +219,8 @@ class Teacher extends User{
 
       //insert query into database and redirect user to teacherTable.php
       if ($conn->query($sql) === TRUE) {
-        echo "Registered sucessfully <br>";
-        header("Location: teacherTable.php");
+        echo "Registered successfully <br>";
+        header("Location: teacherLogin.php?registered");
       } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
       }

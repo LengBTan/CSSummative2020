@@ -24,13 +24,18 @@ if($teacher->session() && $_SESSION["usertype"] == "teacher"){
         <div class="box">
 
         <?php
+        //after redirected from register page, prompt user that they are registered successfully
+        if(isset($_GET['registered'])){
+        echo "Registered successfully";
+        }
+
         //when the button is pressed, logs the user in, if credentials are incorrect, prompts user that credentials are wrong
         if(isset($_POST['submit'])){
             $email = $_POST["email"];
             $password = $_POST['password'];
             $login = $teacher->login($email,$password);
             if($login){
-                echo "Logged in sucessfully";
+                echo "Logged in successfully";
 
             }else{
                 echo"Failed to log in, Email or password may be incorrect.";
