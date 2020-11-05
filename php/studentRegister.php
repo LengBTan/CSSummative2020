@@ -37,10 +37,10 @@ if($student->session()){
 
 		<h2>Student register</h2>
 		<form action="" method="POST">
-			<input type="text" name="firstname" placeholder="First name" required> <br>
-			<input type="text" name="lastname" placeholder="Last name" required> <br>
-			<input type="email" name="email" placeholder="Email" required> <br>
-			<input type="password" name="password" placeholder="Password" required> <br>
+			<input type="text" name="firstname" placeholder="First name" autocomplete= "off" required> <br>
+			<input type="text" name="lastname" placeholder="Last name" autocomplete= "off" required> <br>
+			<input type="email" name="email" placeholder="Email" autocomplete= "off" required> <br>
+			<input type="password" name="password" placeholder="Password" autocomplete= "off" required> <br>
 			<input type="submit" name="submit" value="register" required> <br>
 
 

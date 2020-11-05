@@ -48,8 +48,8 @@ if($student->session() && $_SESSION["usertype"] == "student"){
 
     <h2>Log in as a student:</h2>
 		<form action="" method="POST">
-			<input type="email" name="email" placeholder="Email" required> <br>
-			<input type="password" name="password" placeholder="Password" required> <br>
+			<input type="email" name="email" placeholder="Email" autocomplete= "off" required> <br>
+			<input type="password" name="password" placeholder="Password" autocomplete= "off" required> <br>
 			<input type="submit" name="submit" value="Log In" required> <br>
 		</form>
 	</div>
