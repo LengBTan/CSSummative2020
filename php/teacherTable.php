@@ -201,7 +201,7 @@ function displaytable($sql,$result){
 		<td>". (int)($row["dayspresent"]/($row["dayspresent"] + $row["daysabsent"])*100)."%</td>
 		<td>". $row["reg_date"]."</td>
 		<td> <a href='edit.php?id=".$row["id"]."' id='editbutton' >•••</a></td>
-		</tr>";
+		</tr>";//dividing dayspresent by the sum of dayspresent and daysabsent creates a float value, cast it with an int to shorten the value.
 	}else{
 		echo "no students on the list.";
 	}

@@ -55,19 +55,19 @@ if(isset($_GET['logoutsession'])){
 			<?php
 			if(isset($_GET['signin'])){
 
-				$student->loginAttendence($email);
-				echo "<h3>Logged in for attendence </h3>";
+				$student->loginAttendance($email);
+				echo "<h3>Logged in for attendance </h3>";
 			}
 			
 			if(isset($_GET['logout'])){
-				$student->logoutAttendence($email);
-				echo "<h3>Logged out for attendence</h3>";
+				$student->logoutAttendance($email);
+				echo "<h3>Logged out for attendance</h3>";
 			}
 			?>
 
 
-			<a href="?signin" class="button">Sign in for attendence</a>
-			<a href="?logout" class="button">Sign out for attendence</a>
+			<a href="?signin" class="button">Sign in for attendance</a>
+			<a href="?logout" class="button">Sign out for attendance</a>
 			<!--<a href="studentEdit.php" class="button">Edit student info</a>-->
 		</div>
 		

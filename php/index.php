@@ -18,7 +18,8 @@
 
 
 	<h3>Teachers</h3>
-	<!-- remove this on final product-->
+	
+	<!--USED FOR TESTING-->
 	<!--<a href="./teacherTable.php" class="button">TEACHER DATABASE</a>-->
 	
 	<a href="./teacherLogin.php" class="button">Teacher login</a>

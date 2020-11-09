@@ -24,7 +24,10 @@ class User{
 */
 class Student extends User{
 
-  //registers user into the database as a student with the parameters firstname, lastname, email, and password
+  /**
+   * registers user as a student with parameters of firstname, lastname, email, and password
+   * $firstname,$lastname,$email,$password parameters are inserted into the database
+   */
   public function register($firstname, $lastname, $email, $password){
     include "connect.php";
     $password = md5($password); //encrypts password using MD5 encrypting algorithm
@@ -41,8 +44,7 @@ class Student extends User{
       $sql = "INSERT INTO StudentDB (firstname, lastname, email, password, present, dayspresent, daysabsent) VALUES ('$firstname', '$lastname', '$email', '$password' , true, '1', '0')"; //sql query
       //insert query to database and redirect user to studentPage.php
       if ($conn->query($sql) === TRUE) {
-        
-        header("Location: studentLogin.php?registered");
+        header("Location: studentLogin.php?registered");//redirect user to the studentLogin.php page
         echo "Registered successfully <br>";
       } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -53,7 +55,8 @@ class Student extends User{
   }
 
   /**
-   * logs user into site
+   * logs user into the website
+   * $email, $password parameters are used to authenticate user
    */
   function login($email, $password){
     include "connect.php";
@@ -87,19 +90,30 @@ class Student extends User{
   }
 
   
-
-  function loginAttendence($email){
+  /**
+   * logs student into attendance
+   * $email parameter is used to locate where the student is on the database
+   */
+  function loginAttendance($email){
     include "connect.php";
     $sql = "UPDATE studentdb SET present='1' WHERE email='$email'";
 	  $result = $conn->query($sql);
   }
 
-  function logoutAttendence($email){
+  /**
+   * logs student out of attendance
+   * $email parameter is used to locate where the student is on the database
+   */
+  function logoutAttendance($email){
     include "connect.php";
     $sql = "UPDATE studentdb SET present='0' WHERE email='$email'";
 	  $result = $conn->query($sql);
   }
   
+  /**
+   * Used to edit the student
+   * $id parameter is used to locate where the student is on the database
+   */
   function editstudent($id){
     include "connect.php";
     $sql= "SELECT * FROM studentdb where id='".$id."'";
@@ -119,6 +133,10 @@ class Student extends User{
     }
   }
 
+  /**
+   * Used to delete the student
+   * $id parameter is used to locate where the student is on the database
+   */
   function deleteStudent($id){
     include "connect.php";
     //finds the id of the row to delete from studentdb
@@ -131,6 +149,10 @@ class Student extends User{
     }
   }
 
+  /**
+   * gets the first name of student
+   * $id parameter is used to locate where the student is on the database
+   */
   function getFirstName($id){
     include "connect.php";
     //finds the id of the row to retrieve firstname from studentdb
@@ -143,6 +165,10 @@ class Student extends User{
     return $firstname;
   }
 
+  /**
+   * gets the last name of student
+   * $id parameter is used to locate where the student is on the database
+   */
   function getLastName($id){
     include "connect.php";
     //finds the id of the row to retrieve lastname from studentdb
@@ -155,6 +181,11 @@ class Student extends User{
     return $lastname;
 
   }
+
+  /**
+   * gets the email of student
+   * $id parameter is used to locate where the student is on the database
+   */
   function getEmail($id){
     include "connect.php";
     //finds the id of the row to retrieve email from studentdb
@@ -168,6 +199,10 @@ class Student extends User{
 
   }
 
+  /**
+   * gets the days present of student
+   * $id parameter is used to locate where the student is on the database
+   */
   function getDaysPresent($id){
     include "connect.php";
     //finds the id of the row to retrieve dayspresent from studentdb
@@ -180,6 +215,11 @@ class Student extends User{
     return $dayspresent;
 
   }
+
+  /**
+   * gets the days absent of student
+   * $id parameter is used to locate where the student is on the database
+   */
   function getDaysAbsent($id){
     include "connect.php";
     //finds the id of the row to retrieve dayspresent from studentdb
@@ -197,13 +237,16 @@ class Student extends User{
 
 
 /**
- * teacherclass, 
- * 
+ * Teacher class, includes method for logging in and registering into the website as a teacher 
+ * enherits functions from User class
  * 
  */
 class Teacher extends User{
 
-  //registers user as a teacher with parameters of firstname, lastname, email, and password
+  /**
+   * registers user as a teacher with parameters of firstname, lastname, email, and password
+   * $firstname,$lastname,$email,$password parameters are inserted into the database
+   */
   public function register($firstname, $lastname, $email, $password){
     include "connect.php";
     $password = md5($password); //encrypts password using MD5 encrypting algorithm
@@ -232,6 +275,7 @@ class Teacher extends User{
 
   /**
    * logs user into the website
+   * $email, $password parameters are used to authenticate user
    */
   function login($email, $password){
     include "connect.php";
@@ -248,7 +292,6 @@ class Teacher extends User{
       $_SESSION["usertype"] = "teacher";//stores usertype
 
 
-      
       $sql = "UPDATE teacherdb SET reg_date = now() WHERE email = '".$email."'"; //update timestamp
       $result = mysqli_query($conn,$sql); 
       if ($conn->query($sql) === TRUE) {
