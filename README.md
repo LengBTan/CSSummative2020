@@ -1,2 +1,2 @@
 # CSSummative2020
-Program used as a database for teachers and students
+This is a web application, targeted towards teachers or supervisors as a organizational tool
