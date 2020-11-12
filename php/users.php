@@ -1,5 +1,10 @@
 <?php
 
+
+/**
+ * User class, contains functions for checking the session of the user, and logging the user out of the website.
+ */
+
 class User{
 
   //checks if the user is logged in, and returns true if they are logged in
@@ -18,10 +23,11 @@ class User{
 
 } 
 
-/**student class, includes methods for registering, logging in as a user and to attendence, deleting the student, and getters for firstname, lastname, email, and dayspresent.
-* enherits functions from parent class User
-*
-*/
+/**
+ * student class, includes methods for registering, logging in as a user and to attendence, deleting the student, and getters for firstname, lastname, email, and dayspresent.
+ * enherits functions from parent class User
+ *
+ */
 class Student extends User{
 
   /**
