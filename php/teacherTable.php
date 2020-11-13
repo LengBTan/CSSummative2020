@@ -39,6 +39,10 @@
 		
 		<?php
 		
+		/**
+		 * SQL QUERIES
+		 */
+
 		//creates table called StudentDB, with headers of id, firstname, lastname, email, password, present, dayspresent, and reg_date
 		//id is BIGINT due to the int being 10 digits, which may not be long enough.
 		/*$sql = "CREATE TABLE StudentDB (
