@@ -39,7 +39,7 @@ if(isset($_GET['logoutsession'])){
 		<h2 id="title">Student Page</h2>
 	<?php
 	
-
+	//displays user email
 	if($student->session()){
 		echo "<h4 id='displayuser'>Currently logged in as: ".$_SESSION['email']."</h4>";
 	}
@@ -68,7 +68,6 @@ if(isset($_GET['logoutsession'])){
 
 			<a href="?signin" class="button">Sign in for attendance</a>
 			<a href="?logout" class="button">Sign out for attendance</a>
-			<!--<a href="studentEdit.php" class="button">Edit student info</a>-->
 		</div>
 		
 		

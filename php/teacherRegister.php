@@ -16,10 +16,10 @@ $teacher = new Teacher();
 	<div class=box>
 		<?php
 		if (isset($_POST['submit'])){
-			$firstname = $_POST["firstname"];
-			$lastname = $_POST["lastname"];
-			$email = $_POST["email"];
-			$password = $_POST['password'];
+			$firstname = $_POST["firstname"];//sets first name to entered first name
+			$lastname = $_POST["lastname"];//sets last name to entered last name
+			$email = $_POST["email"];//sets email to entered last name
+			$password = $_POST['password'];//sets password to entered password
 		
 			$teacher->register($firstname,$lastname,$email,$password);
 		}
